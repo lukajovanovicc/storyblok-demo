@@ -18,7 +18,7 @@ const fetchSlug = async (lang: string) => {
 const SlugPage: FC<Props> = async ({ params }) => {
   const { slug } = await params;
   const data = await fetchSlug(slug.length > 1 ? slug[0] : 'default');
-
+  //a
   return (
     <>
       <StoryblokStory story={data} />
