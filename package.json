@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem",
+    "pull": "storyblok pull-components --space 285688353962343",
+    "generate": "storyblok generate-typescript-typedefs --sourceFilePaths ./components.285688353962343.json --destinationFilePath ./component-types-sb.d.ts"
   },
   "dependencies": {
     "@storyblok/react": "^5.3.0",
