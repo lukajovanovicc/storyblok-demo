@@ -13,8 +13,6 @@ const Navbar: FC<Props> = ({ blok }) => {
   const { items, search, color } = blok;
   const [open, setOpen] = useState(false);
 
-  console.log(color);
-
   return (
     <header className={`${color} flex w-full items-center justify-center`}>
       <div className='container'>

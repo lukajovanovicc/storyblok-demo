@@ -11,12 +11,16 @@ interface Props {
 }
 
 const Page: FC<Props> = async ({ blok }) => {
-  const { body } = blok;
+  const { body, darkTheme, font } = blok;
 
   return (
     <>
       {body ? (
-        <div className=''>
+        <div
+          className={`${
+            darkTheme ? 'bg-black text-white' : 'bg-white text-black'
+          } ${font}`}
+        >
           {body.map((nestedBlok) => (
             <StoryblokServerComponent
               blok={nestedBlok}
