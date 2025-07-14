@@ -1,7 +1,4 @@
-import {
-  storyblokEditable,
-  StoryblokServerComponent,
-} from '@storyblok/react/rsc';
+import { StoryblokServerComponent } from '@storyblok/react/rsc';
 import { FC } from 'react';
 import { PageStoryblok } from '../../../component-types-sb';
 
@@ -11,7 +8,7 @@ interface Props {
 }
 
 const Page: FC<Props> = async ({ blok }) => {
-  const { body, darkTheme, font } = blok;
+  const { body, darkTheme, font, mainColor } = blok;
 
   return (
     <>
@@ -25,7 +22,8 @@ const Page: FC<Props> = async ({ blok }) => {
             <StoryblokServerComponent
               blok={nestedBlok}
               key={nestedBlok._uid}
-              {...storyblokEditable(nestedBlok)}
+              mainColor={mainColor}
+              darkTheme={darkTheme}
             />
           ))}
         </div>

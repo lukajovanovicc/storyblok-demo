@@ -46,6 +46,18 @@ export interface AboutButtonStoryblok {
   [k: string]: any;
 }
 
+export interface ContactStoryblok {
+  title?: string;
+  description?: string;
+  phone?: string;
+  email?: string;
+  address?: string;
+  form: FormStoryblok[];
+  component: "contact";
+  _uid: string;
+  [k: string]: any;
+}
+
 export interface FooterStoryblok {
   group?: FooterGroupStoryblok[];
   color?: "" | "bg-blue-500" | "bg-red-500" | "bg-purple-500" | "bg-green-500" | "bg-yellow-500";
@@ -144,6 +156,25 @@ export interface FooterLinkStoryblok {
   [k: string]: any;
 }
 
+export interface FormStoryblok {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  input?: InputStoryblok[];
+  component: "form";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface InputStoryblok {
+  type?: "" | "classic" | "textarea";
+  label?: string;
+  placeholder?: string;
+  component: "input";
+  _uid: string;
+  [k: string]: any;
+}
+
 export interface NavbarStoryblok {
   items?: NavItemStoryblok[];
   search?: boolean;
@@ -161,7 +192,14 @@ export interface NavItemStoryblok {
 }
 
 export interface PageStoryblok {
-  body?: (NavbarStoryblok | FooterStoryblok | TestimonialsStoryblok | AboutStoryblok | ProductStoryblok)[];
+  body?: (
+    | NavbarStoryblok
+    | FooterStoryblok
+    | TestimonialsStoryblok
+    | AboutStoryblok
+    | ProductStoryblok
+    | ContactStoryblok
+  )[];
   darkTheme?: boolean;
   font?: "" | "font-sans" | "font-serif" | "font-mono";
   component: "page";

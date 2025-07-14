@@ -8,9 +8,11 @@ import { TestimonialsStoryblok } from '../../../../component-types-sb';
 
 interface Props {
   blok: TestimonialsStoryblok;
+  mainColor: string;
+  darkTheme: boolean;
 }
 
-const Testimonials: FC<Props> = ({ blok }) => {
+const Testimonials: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   const { label, title, description, slides } = blok;
   const sliderRef = useRef<SwiperRef | null>(null);
 
@@ -26,7 +28,7 @@ const Testimonials: FC<Props> = ({ blok }) => {
 
   return (
     <section className='pb-20 pt-20 lg:pb-[120px] lg:pt-[120px]'>
-      <div className='container mx-auto'>
+      <div className='container mx-auto px-4 md:px-0'>
         <div className='flex flex-wrap justify-center'>
           <div className='w-full md:w-11/12 lg:w-10/12 xl:w-8/12'>
             <div className='mb-8 max-w-[510px]'>
@@ -47,10 +49,20 @@ const Testimonials: FC<Props> = ({ blok }) => {
             className='flex h-10 w-10 items-center justify-center'
           >
             <svg
-              width='20'
-              height='20'
+              width='30'
+              height='30'
               viewBox='0 0 20 20'
-              fill='#2b7fff'
+              fill={
+                mainColor === 'blue'
+                  ? '#2b7fff'
+                  : mainColor === 'green'
+                  ? '#00c951'
+                  : mainColor === 'red'
+                  ? '#fb2c36'
+                  : mainColor === 'purple'
+                  ? '#ad46ff'
+                  : '#f0b100'
+              }
               xmlns='http://www.w3.org/2000/svg'
             >
               <path
@@ -67,6 +79,8 @@ const Testimonials: FC<Props> = ({ blok }) => {
                   name={name}
                   position={position}
                   details={details}
+                  mainColor={mainColor}
+                  darkTheme={darkTheme}
                 />
               </SwiperSlide>
             ))}
@@ -76,10 +90,20 @@ const Testimonials: FC<Props> = ({ blok }) => {
             className='flex h-10 w-10 items-center justify-center'
           >
             <svg
-              width='20'
-              height='20'
+              width='30'
+              height='30'
               viewBox='0 0 20 20'
-              fill='#2b7fff'
+              fill={
+                mainColor === 'blue'
+                  ? '#2b7fff'
+                  : mainColor === 'green'
+                  ? '#00c951'
+                  : mainColor === 'red'
+                  ? '#fb2c36'
+                  : mainColor === 'purple'
+                  ? '#ad46ff'
+                  : '#f0b100'
+              }
               xmlns='http://www.w3.org/2000/svg'
             >
               <path

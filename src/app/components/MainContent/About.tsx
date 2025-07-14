@@ -5,14 +5,15 @@ import Image from 'next/image';
 
 interface Props {
   blok: AboutStoryblok;
+  mainColor: string;
 }
 
-const About: FC<Props> = ({ blok }) => {
+const About: FC<Props> = ({ blok, mainColor }) => {
   const { title, subTitle, subItems, description, button, images } = blok;
   return (
     <>
-      <section className='relative pt-[150px] pb-[110px] lg:pt-[170px] bg-white dark:bg-dark'>
-        <div className='container mx-auto'>
+      <section className='relative pt-[150px] pb-[110px] lg:pt-[170px]'>
+        <div className='container mx-auto px-4 md:px-0'>
           <div className='flex flex-wrap items-center -mx-4'>
             <div className='w-full px-4 lg:w-1/2'>
               <div className='mb-12 max-w-[540px] lg:mb-0'>
@@ -23,7 +24,9 @@ const About: FC<Props> = ({ blok }) => {
                   {description}
                 </p>
                 <h3 className='mb-8 text-2xl font-bold'>{subTitle}</h3>
-                <ul className='pb-6 list-disc list-inside marker:text-blue-500'>
+                <ul
+                  className={`pb-6 list-disc list-inside marker:text-${mainColor}-500`}
+                >
                   {subItems?.map(({ text }, index) => (
                     <li key={index} className='mb-4 text-base'>
                       {text}
@@ -32,7 +35,7 @@ const About: FC<Props> = ({ blok }) => {
                 </ul>
                 <Link
                   href='#'
-                  className='inline-flex items-center justify-center py-3 text-base font-medium text-center text-white border border-transparent rounded-md px-7 bg-blue-500 hover:bg-opacity-90'
+                  className={`inline-flex items-center justify-center py-3 text-base font-medium text-center text-white border border-transparent rounded-md px-7 bg-${mainColor}-500 hover:bg-opacity-90`}
                 >
                   {button && button[0].text}
                 </Link>
@@ -68,7 +71,9 @@ const About: FC<Props> = ({ blok }) => {
                       />
                     )}
                   </div>
-                  <div className='bg-blue-500 relative z-10 mb-4 flex items-center justify-center overflow-hidden py-12 px-6 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8'>
+                  <div
+                    className={`bg-${mainColor}-500 relative z-10 mb-4 flex items-center justify-center overflow-hidden py-12 px-6 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8`}
+                  >
                     <div>
                       <span className='block text-5xl font-extrabold text-white'>
                         09

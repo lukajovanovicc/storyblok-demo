@@ -7,16 +7,17 @@ import { FooterStoryblok } from '../../../../component-types-sb';
 
 interface Props {
   blok: FooterStoryblok;
+  mainColor: string;
 }
 
-const Footer: FC<Props> = ({ blok }) => {
-  const { group, color } = blok;
+const Footer: FC<Props> = ({ blok, mainColor }) => {
+  const { group } = blok;
 
   return (
     <footer
-      className={`${color} relative z-10 pb-10 pt-20 lg:pb-20 lg:pt-[120px]`}
+      className={`bg-${mainColor}-500 relative z-10 pb-10 pt-20 lg:pb-20 lg:pt-[120px]`}
     >
-      <div className='container mx-auto'>
+      <div className='container mx-auto px-4 md:px-0'>
         <div className='-mx-4 flex flex-wrap'>
           <div className='w-full px-4 sm:w-2/3 lg:w-3/12'>
             <div className='mb-10 w-full'>
