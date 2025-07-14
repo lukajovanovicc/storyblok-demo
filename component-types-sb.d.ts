@@ -31,17 +31,26 @@ export interface AboutStoryblok {
   description?: string;
   subTitle?: string;
   subItems?: SubItemStoryblok[];
-  button?: AboutButtonStoryblok[];
+  button?: ButtonStoryblok[];
   images?: MultiassetStoryblok;
+  switchTextPlace?: boolean;
   component: "about";
   _uid: string;
   [k: string]: any;
 }
 
-export interface AboutButtonStoryblok {
+export interface AccordionStoryblok {
+  title: string;
+  text: string;
+  component: "accordion";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface ButtonStoryblok {
   color: "" | "bg-blue-500" | "bg-red-500" | "bg-green-500" | "bg-purple-500" | "bg-yellow-500";
   text?: string;
-  component: "about-button";
+  component: "button";
   _uid: string;
   [k: string]: any;
 }
@@ -54,6 +63,16 @@ export interface ContactStoryblok {
   address?: string;
   form: FormStoryblok[];
   component: "contact";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface FaqStoryblok {
+  label?: string;
+  title?: string;
+  description?: string;
+  accordions?: AccordionStoryblok[];
+  component: "FAQ";
   _uid: string;
   [k: string]: any;
 }
@@ -199,9 +218,11 @@ export interface PageStoryblok {
     | AboutStoryblok
     | ProductStoryblok
     | ContactStoryblok
+    | FaqStoryblok
   )[];
   darkTheme?: boolean;
   font?: "" | "font-sans" | "font-serif" | "font-mono";
+  mainColor?: "" | "blue" | "red" | "green" | "purple" | "yellow";
   component: "page";
   _uid: string;
   [k: string]: any;
@@ -236,8 +257,9 @@ export interface ProductStoryblok {
   label?: string;
   title?: string;
   description?: string;
-  button?: AboutButtonStoryblok[];
+  button?: ButtonStoryblok[];
   image: AssetStoryblok;
+  switchTextPlace?: boolean;
   component: "product";
   _uid: string;
   [k: string]: any;

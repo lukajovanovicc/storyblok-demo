@@ -9,12 +9,20 @@ interface Props {
 }
 
 const Product: FC<Props> = ({ blok, mainColor }) => {
-  const { label, title, description, button, image } = blok;
+  const { label, title, description, button, image, switchTextPlace } = blok;
   return (
     <section className='bg-gray-1 pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] dark:bg-dark'>
       <div className='container mx-auto px-4 md:px-0'>
-        <div className='-mx-4 flex flex-wrap items-center justify-center'>
-          <div className='w-full px-4 lg:w-1/2'>
+        <div
+          className={`-mx-4 flex ${
+            switchTextPlace ? 'flex-row-reverse' : ''
+          } items-center justify-center`}
+        >
+          <div
+            className={`w-full px-4 lg:w-1/2 ${
+              switchTextPlace ? 'text-right' : ''
+            }`}
+          >
             <div className='mb-12 max-w-[465px] lg:mb-0'>
               <span
                 className={`text-${mainColor}-500 xs:text-xl mb-[18px] block text-lg font-semibold`}
@@ -25,7 +33,9 @@ const Product: FC<Props> = ({ blok, mainColor }) => {
                 {title}
               </h2>
               <span
-                className={`bg-${mainColor}-500 mb-6 block h-[3px] w-[100px]`}
+                className={`bg-${mainColor}-500 mb-6 block h-[3px] w-[100px] ${
+                  switchTextPlace ? 'justify-self-end' : ''
+                }`}
               ></span>
               <p className='mb-9 text-base'>{description}</p>
               <Link

@@ -9,20 +9,34 @@ interface Props {
 }
 
 const About: FC<Props> = ({ blok, mainColor }) => {
-  const { title, subTitle, subItems, description, button, images } = blok;
+  const {
+    title,
+    subTitle,
+    subItems,
+    description,
+    button,
+    images,
+    switchTextPlace,
+  } = blok;
   return (
     <>
       <section className='relative pt-[150px] pb-[110px] lg:pt-[170px]'>
         <div className='container mx-auto px-4 md:px-0'>
-          <div className='flex flex-wrap items-center -mx-4'>
-            <div className='w-full px-4 lg:w-1/2'>
+          <div
+            className={`flex ${
+              switchTextPlace ? 'flex-row-reverse' : ''
+            } items-center -mx-4`}
+          >
+            <div
+              className={`w-full px-4 lg:w-1/2 ${
+                switchTextPlace && 'flex justify-end'
+              }`}
+            >
               <div className='mb-12 max-w-[540px] lg:mb-0'>
                 <h2 className='mb-5 text-3xl font-bold leading-tight sm:text-[40px]/[48px]'>
                   {title}
                 </h2>
-                <p className='mb-10 text-base leading-relaxed dark:text-dark-6 text-body-color'>
-                  {description}
-                </p>
+                <p className='mb-10 text-base leading-relaxed'>{description}</p>
                 <h3 className='mb-8 text-2xl font-bold'>{subTitle}</h3>
                 <ul
                   className={`pb-6 list-disc list-inside marker:text-${mainColor}-500`}
