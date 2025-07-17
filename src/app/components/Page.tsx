@@ -4,10 +4,10 @@ import { PageStoryblok } from '../../../component-types-sb';
 
 interface Props {
   blok: PageStoryblok;
-  lang: string;
+  page: string;
 }
 
-const Page: FC<Props> = async ({ blok }) => {
+const Page: FC<Props> = async ({ blok, page }) => {
   const { body, darkTheme, font, mainColor } = blok;
 
   return (
@@ -15,7 +15,7 @@ const Page: FC<Props> = async ({ blok }) => {
       {body ? (
         <div
           className={`${
-            darkTheme ? 'bg-black text-white' : 'bg-white text-black'
+            darkTheme ? 'bg-black text-white' : 'bg-white text-[#424242]'
           } ${font}`}
         >
           {body.map((nestedBlok) => (
@@ -24,6 +24,7 @@ const Page: FC<Props> = async ({ blok }) => {
               key={nestedBlok._uid}
               mainColor={mainColor}
               darkTheme={darkTheme}
+              page={page}
             />
           ))}
         </div>

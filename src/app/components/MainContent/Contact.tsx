@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { ContactStoryblok } from '../../../../component-types-sb';
+import Button from '../Button';
 
 interface Props {
   blok: ContactStoryblok;
@@ -11,7 +12,7 @@ const Contact: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   const { title, description, phone, email, address, form } = blok;
 
   return (
-    <section className='relative z-10 overflow-hidden py-20 lg:py-[120px]'>
+    <section className='relative z-10 overflow-hidden py-16'>
       <div className='container justify-self-center px-4 md:px-0'>
         <div className='-mx-4 flex flex-wrap items-center'>
           <div className='w-full px-4 lg:w-1/2 xl:w-5/12'>
@@ -66,7 +67,7 @@ const Contact: FC<Props> = ({ blok, mainColor, darkTheme }) => {
                           <input
                             type='text'
                             placeholder={placeholder}
-                            className={`w-full rounded-lg border bg-transparent px-5 py-3 placeholder-opacity-50 outline-none duration-200 focus:border-${mainColor}-500`}
+                            className={`w-full rounded-lg border bg-transparent px-5 py-3 placeholder-opacity-50 outline-none duration-200 focus:border-${mainColor}`}
                           />
                         </div>
                       </div>
@@ -81,7 +82,7 @@ const Contact: FC<Props> = ({ blok, mainColor, darkTheme }) => {
                           <textarea
                             rows={6}
                             placeholder={placeholder}
-                            className={`w-full rounded-lg border bg-transparent p-5 placeholder-dark-5 outline-none duration-200 focus:border-${mainColor}-500`}
+                            className={`w-full rounded-lg border bg-transparent p-5 placeholder-dark-5 outline-none duration-200 focus:border-${mainColor}`}
                           ></textarea>
                         </div>
                       </div>
@@ -90,9 +91,13 @@ const Contact: FC<Props> = ({ blok, mainColor, darkTheme }) => {
                 })}
 
                 <div className='w-full px-4'>
-                  <button className='flex h-[52px] w-full items-center justify-center rounded-lg bg-black hover:opacity-75 px-5 py-3 text-base font-medium text-white duration-200'>
-                    {form[0].buttonText}{' '}
-                  </button>
+                  <Button
+                    color={mainColor}
+                    darkTheme={darkTheme}
+                    className='flex w-full'
+                  >
+                    {form[0].buttonText}
+                  </Button>
                 </div>
               </div>
             </div>

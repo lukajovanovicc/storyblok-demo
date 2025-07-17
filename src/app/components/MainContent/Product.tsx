@@ -2,16 +2,18 @@ import React, { FC } from 'react';
 import { ProductStoryblok } from '../../../../component-types-sb';
 import Image from 'next/image';
 import Link from 'next/link';
+import Button from '../Button';
 
 interface Props {
   blok: ProductStoryblok;
   mainColor: string;
+  darkTheme: boolean;
 }
 
-const Product: FC<Props> = ({ blok, mainColor }) => {
+const Product: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   const { label, title, description, button, image, switchTextPlace } = blok;
   return (
-    <section className='bg-gray-1 pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] dark:bg-dark'>
+    <section className='bg-gray-1 py-12 lg:py-[70px]'>
       <div className='container mx-auto px-4 md:px-0'>
         <div
           className={`-mx-4 flex ${
@@ -25,7 +27,7 @@ const Product: FC<Props> = ({ blok, mainColor }) => {
           >
             <div className='mb-12 max-w-[465px] lg:mb-0'>
               <span
-                className={`text-${mainColor}-500 xs:text-xl mb-[18px] block text-lg font-semibold`}
+                className={`text-${mainColor} xs:text-xl mb-[18px] block text-lg font-semibold`}
               >
                 {label}
               </span>
@@ -33,16 +35,15 @@ const Product: FC<Props> = ({ blok, mainColor }) => {
                 {title}
               </h2>
               <span
-                className={`bg-${mainColor}-500 mb-6 block h-[3px] w-[100px] ${
+                className={`bg-${mainColor} mb-6 block h-[3px] w-[100px] ${
                   switchTextPlace ? 'justify-self-end' : ''
                 }`}
               ></span>
               <p className='mb-9 text-base'>{description}</p>
-              <Link
-                href='#'
-                className={`bg-${mainColor}-500 inline-flex items-center justify-center rounded-md py-[13px] px-7 text-center text-base font-medium text-white hover:bg-blue-dark`}
-              >
-                {button && button[0].text}
+              <Link href='#'>
+                <Button color={mainColor} darkTheme={darkTheme}>
+                  {button && button[0].text}
+                </Button>
               </Link>
             </div>
           </div>

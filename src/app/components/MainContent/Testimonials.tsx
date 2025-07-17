@@ -27,7 +27,7 @@ const Testimonials: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   }, []);
 
   return (
-    <section className='pb-20 pt-20 lg:pb-[120px] lg:pt-[120px]'>
+    <section className='py-12 lg:py-[70px]'>
       <div className='container mx-auto px-4 md:px-0'>
         <div className='flex flex-wrap justify-center'>
           <div className='w-full md:w-11/12 lg:w-10/12 xl:w-8/12'>
@@ -55,13 +55,13 @@ const Testimonials: FC<Props> = ({ blok, mainColor, darkTheme }) => {
               fill={
                 mainColor === 'blue'
                   ? '#2b7fff'
-                  : mainColor === 'green'
-                  ? '#00c951'
+                  : mainColor === 'yellow'
+                  ? '#f0b100'
                   : mainColor === 'red'
                   ? '#fb2c36'
                   : mainColor === 'purple'
                   ? '#ad46ff'
-                  : '#f0b100'
+                  : '#9dc73e'
               }
               xmlns='http://www.w3.org/2000/svg'
             >
@@ -96,13 +96,13 @@ const Testimonials: FC<Props> = ({ blok, mainColor, darkTheme }) => {
               fill={
                 mainColor === 'blue'
                   ? '#2b7fff'
-                  : mainColor === 'green'
-                  ? '#00c951'
+                  : mainColor === 'yellow'
+                  ? '#f0b100'
                   : mainColor === 'red'
                   ? '#fb2c36'
                   : mainColor === 'purple'
                   ? '#ad46ff'
-                  : '#f0b100'
+                  : '#9dc73e'
               }
               xmlns='http://www.w3.org/2000/svg'
             >

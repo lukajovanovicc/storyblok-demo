@@ -49,13 +49,13 @@ const SingleTestimonial: FC<Props> = ({
                   fill={
                     mainColor === 'blue'
                       ? '#2b7fff'
-                      : mainColor === 'green'
-                      ? '#00c951'
+                      : mainColor === 'yellow'
+                      ? '#f0b100'
                       : mainColor === 'red'
                       ? '#fb2c36'
                       : mainColor === 'purple'
                       ? '#ad46ff'
-                      : '#f0b100'
+                      : '#9dc73e'
                   }
                 />
                 <path
@@ -63,13 +63,13 @@ const SingleTestimonial: FC<Props> = ({
                   fill={
                     mainColor === 'blue'
                       ? '#2b7fff'
-                      : mainColor === 'green'
-                      ? '#00c951'
+                      : mainColor === 'yellow'
+                      ? '#f0b100'
                       : mainColor === 'red'
                       ? '#fb2c36'
                       : mainColor === 'purple'
                       ? '#ad46ff'
-                      : '#f0b100'
+                      : '#9dc73e'
                   }
                 />
               </svg>

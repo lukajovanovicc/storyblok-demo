@@ -2,13 +2,15 @@ import React, { FC } from 'react';
 import { AboutStoryblok } from '../../../../component-types-sb';
 import Link from 'next/link';
 import Image from 'next/image';
+import Button from '../Button';
 
 interface Props {
   blok: AboutStoryblok;
   mainColor: string;
+  darkTheme: boolean;
 }
 
-const About: FC<Props> = ({ blok, mainColor }) => {
+const About: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   const {
     title,
     subTitle,
@@ -20,12 +22,12 @@ const About: FC<Props> = ({ blok, mainColor }) => {
   } = blok;
   return (
     <>
-      <section className='relative pt-[150px] pb-[110px] lg:pt-[170px]'>
+      <section className='relative py-[50px]  lg:py-[70px]'>
         <div className='container mx-auto px-4 md:px-0'>
           <div
             className={`flex ${
               switchTextPlace ? 'flex-row-reverse' : ''
-            } items-center -mx-4`}
+            } -mx-4`}
           >
             <div
               className={`w-full px-4 lg:w-1/2 ${
@@ -39,7 +41,7 @@ const About: FC<Props> = ({ blok, mainColor }) => {
                 <p className='mb-10 text-base leading-relaxed'>{description}</p>
                 <h3 className='mb-8 text-2xl font-bold'>{subTitle}</h3>
                 <ul
-                  className={`pb-6 list-disc list-inside marker:text-${mainColor}-500`}
+                  className={`pb-6 list-disc list-inside marker:text-${mainColor}`}
                 >
                   {subItems?.map(({ text }, index) => (
                     <li key={index} className='mb-4 text-base'>
@@ -47,11 +49,10 @@ const About: FC<Props> = ({ blok, mainColor }) => {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href='#'
-                  className={`inline-flex items-center justify-center py-3 text-base font-medium text-center text-white border border-transparent rounded-md px-7 bg-${mainColor}-500 hover:bg-opacity-90`}
-                >
-                  {button && button[0].text}
+                <Link href='#'>
+                  <Button color={mainColor} darkTheme={darkTheme}>
+                    {button && button[0].text}
+                  </Button>
                 </Link>
               </div>
             </div>
@@ -86,16 +87,14 @@ const About: FC<Props> = ({ blok, mainColor }) => {
                     )}
                   </div>
                   <div
-                    className={`bg-${mainColor}-500 relative z-10 mb-4 flex items-center justify-center overflow-hidden py-12 px-6 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8`}
+                    className={`bg-${mainColor} relative z-10 mb-4 flex items-center justify-center overflow-hidden py-12 px-6 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8`}
                   >
                     <div>
-                      <span className='block text-5xl font-extrabold text-white'>
-                        09
-                      </span>
-                      <span className='block text-base font-semibold text-white'>
+                      <span className='block text-5xl font-extrabold'>09</span>
+                      <span className='block text-base font-semibold'>
                         We have
                       </span>
-                      <span className='block text-base font-medium text-white text-opacity-70'>
+                      <span className='block text-base font-medium text-opacity-70'>
                         Years of experience
                       </span>
                     </div>

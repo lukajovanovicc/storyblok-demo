@@ -11,11 +11,11 @@ interface Props {
 }
 
 const Footer: FC<Props> = ({ blok, mainColor }) => {
-  const { group } = blok;
+  const { logo, group } = blok;
 
   return (
     <footer
-      className={`bg-${mainColor}-500 relative z-10 pb-10 pt-20 lg:pb-20 lg:pt-[120px]`}
+      className={`bg-${mainColor} relative z-10 pb-10 pt-20 lg:pb-20 lg:pt-[120px]`}
     >
       <div className='container mx-auto px-4 md:px-0'>
         <div className='-mx-4 flex flex-wrap'>
@@ -23,7 +23,7 @@ const Footer: FC<Props> = ({ blok, mainColor }) => {
             <div className='mb-10 w-full'>
               <Link href='#' className='mb-6 inline-block max-w-[160px]'>
                 <Image
-                  src='https://cdn.tailgrids.com/assets/images/logo/logo-white.svg'
+                  src={logo?.filename as string}
                   alt='logo'
                   className='max-w-full'
                   width={1024}
@@ -141,7 +141,7 @@ const Footer: FC<Props> = ({ blok, mainColor }) => {
                 </a>
               </div>
               <p className='text-base text-white'>
-                &copy; {new Date().getFullYear()} TailGrids
+                &copy; {new Date().getFullYear()} Asioso
               </p>
             </div>
           </div>

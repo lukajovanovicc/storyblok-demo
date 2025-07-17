@@ -39,6 +39,50 @@ export interface AboutStoryblok {
   [k: string]: any;
 }
 
+export interface AssetStoryblok {
+  alt: string | null;
+  copyright?: string | null;
+  fieldtype: "asset";
+  id: number;
+  filename: string | null;
+  name: string;
+  title: string | null;
+  focus: string | null;
+  meta_data?: {
+    [k: string]: any;
+  };
+  source?: string | null;
+  is_external_url?: boolean;
+  is_private?: boolean;
+  src?: string;
+  updated_at?: string;
+  width?: number | null;
+  height?: number | null;
+  aspect_ratio?: number | null;
+  public_id?: string | null;
+  content_type?: string;
+  [k: string]: any;
+}
+
+export interface About2Storyblok {
+  label?: string;
+  title?: string;
+  image?: AssetStoryblok;
+  imageText?: string;
+  item?: AboutItemStoryblok[];
+  component: "about2";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface AboutItemStoryblok {
+  title?: string;
+  text?: string;
+  component: "about-item";
+  _uid: string;
+  [k: string]: any;
+}
+
 export interface AccordionStoryblok {
   title: string;
   text: string;
@@ -48,7 +92,7 @@ export interface AccordionStoryblok {
 }
 
 export interface ButtonStoryblok {
-  color: "" | "bg-blue-500" | "bg-red-500" | "bg-green-500" | "bg-purple-500" | "bg-yellow-500";
+  type: "" | "classic" | "outline";
   text?: string;
   component: "button";
   _uid: string;
@@ -78,8 +122,8 @@ export interface FaqStoryblok {
 }
 
 export interface FooterStoryblok {
+  logo?: AssetStoryblok;
   group?: FooterGroupStoryblok[];
-  color?: "" | "bg-blue-500" | "bg-red-500" | "bg-purple-500" | "bg-green-500" | "bg-yellow-500";
   component: "footer";
   _uid: string;
   [k: string]: any;
@@ -185,6 +229,16 @@ export interface FormStoryblok {
   [k: string]: any;
 }
 
+export interface HeroStoryblok {
+  label?: string;
+  title?: string;
+  description?: string;
+  buttons?: ButtonStoryblok[];
+  component: "hero";
+  _uid: string;
+  [k: string]: any;
+}
+
 export interface InputStoryblok {
   type?: "" | "classic" | "textarea";
   label?: string;
@@ -195,9 +249,9 @@ export interface InputStoryblok {
 }
 
 export interface NavbarStoryblok {
+  logo?: AssetStoryblok;
   items?: NavItemStoryblok[];
   search?: boolean;
-  color?: "" | "bg-blue-500" | "bg-red-500" | "bg-green-500" | "bg-purple-500" | "bg-yellow-500";
   component: "navbar";
   _uid: string;
   [k: string]: any;
@@ -219,37 +273,14 @@ export interface PageStoryblok {
     | ProductStoryblok
     | ContactStoryblok
     | FaqStoryblok
+    | HeroStoryblok
+    | About2Storyblok
   )[];
   darkTheme?: boolean;
   font?: "" | "font-sans" | "font-serif" | "font-mono";
-  mainColor?: "" | "blue" | "red" | "green" | "purple" | "yellow";
+  mainColor?: "" | "blue-500" | "red-500" | "[#9dc73e]" | "purple-500" | "yellow-500";
   component: "page";
   _uid: string;
-  [k: string]: any;
-}
-
-export interface AssetStoryblok {
-  alt: string | null;
-  copyright?: string | null;
-  fieldtype: "asset";
-  id: number;
-  filename: string | null;
-  name: string;
-  title: string | null;
-  focus: string | null;
-  meta_data?: {
-    [k: string]: any;
-  };
-  source?: string | null;
-  is_external_url?: boolean;
-  is_private?: boolean;
-  src?: string;
-  updated_at?: string;
-  width?: number | null;
-  height?: number | null;
-  aspect_ratio?: number | null;
-  public_id?: string | null;
-  content_type?: string;
   [k: string]: any;
 }
 

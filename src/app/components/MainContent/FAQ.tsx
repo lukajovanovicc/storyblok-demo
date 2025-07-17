@@ -11,13 +11,13 @@ interface Props {
 const FAQ: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   const { label, title, description, accordions } = blok;
   return (
-    <section className='relative z-20 overflow-hidden pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]'>
+    <section className='relative z-20 overflow-hidden py-12 lg:py-[70px] p-4 sm:p-0'>
       <div className='container mx-auto'>
         <div className='-mx-4 flex flex-wrap'>
           <div className='w-full px-4'>
             <div className='mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20'>
               <span
-                className={`mb-2 block text-lg font-semibold text-${mainColor}-500`}
+                className={`mb-2 block text-lg font-semibold text-${mainColor}`}
               >
                 {label}
               </span>

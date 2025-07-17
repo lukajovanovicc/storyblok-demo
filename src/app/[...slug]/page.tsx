@@ -5,10 +5,10 @@ import { getStoryblokApi } from '../core/storyblok';
 interface Props {
   params: any;
 }
-const fetchSlug = async (lang: string) => {
+const fetchSlug = async (story: string, lang: string) => {
   const client = getStoryblokApi();
 
-  const response = await client.getStory('home', {
+  const response = await client.getStory(`${story}`, {
     version: 'draft',
     language: lang,
   });
@@ -17,10 +17,13 @@ const fetchSlug = async (lang: string) => {
 
 const SlugPage: FC<Props> = async ({ params }) => {
   const { slug } = await params;
-  const data = await fetchSlug(slug.length > 1 ? slug[0] : 'default');
+  const data = await fetchSlug(
+    slug.length > 1 ? slug[1] : slug[0],
+    slug.length > 1 ? slug[0] : 'default'
+  );
   return (
     <>
-      <StoryblokStory story={data} />
+      <StoryblokStory story={data} page={slug[0]} />
     </>
   );
 };
