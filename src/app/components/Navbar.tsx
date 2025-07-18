@@ -17,10 +17,11 @@ const Navbar: FC<Props> = ({ blok, mainColor, page }) => {
 
   return (
     <header
-      className={`bg-${mainColor} flex w-full items-center justify-center`}
+      style={{ backgroundColor: mainColor }}
+      className='flex w-full items-center justify-center'
     >
       <div className='container px-4 md:px-0'>
-        <div className='relative -mx-4 flex items-center justify-between'>
+        <div className='relative py-4 sm:py-0 -mx-4 flex items-center justify-between'>
           <div className='w-40 max-w-full px-4'>
             <Link href='/home'>
               <Image
@@ -39,14 +40,15 @@ const Navbar: FC<Props> = ({ blok, mainColor, page }) => {
                 onClick={() => setOpen(!open)}
                 className={` ${
                   open && 'navbarTogglerActive'
-                } absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-${mainColor} focus:ring-2 lg:hidden`}
+                } absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] focus:ring-2 lg:hidden`}
               >
                 <span className='relative my-[6px] block h-[2px] w-[30px] bg-white'></span>
                 <span className='relative my-[6px] block h-[2px] w-[30px] bg-white'></span>
                 <span className='relative my-[6px] block h-[2px] w-[30px] bg-white'></span>
               </button>
               <nav
-                className={`absolute right-4 top-full z-50 w-full max-w-[250px] rounded-lg bg-${mainColor} px-6 py-5 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:py-0 lg:shadow-none ${
+                style={{ backgroundColor: mainColor }}
+                className={`absolute right-4 top-full z-50 w-full max-w-[250px] rounded-lg px-6 py-5 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:py-0 lg:shadow-none ${
                   !open && 'hidden'
                 } `}
               >

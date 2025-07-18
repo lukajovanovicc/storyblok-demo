@@ -17,7 +17,8 @@ const FAQ: FC<Props> = ({ blok, mainColor, darkTheme }) => {
           <div className='w-full px-4'>
             <div className='mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20'>
               <span
-                className={`mb-2 block text-lg font-semibold text-${mainColor}`}
+                style={{ color: mainColor }}
+                className='mb-2 block text-lg font-semibold'
               >
                 {label}
               </span>

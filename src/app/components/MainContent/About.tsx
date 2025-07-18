@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { CSSProperties, FC } from 'react';
 import { AboutStoryblok } from '../../../../component-types-sb';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -41,7 +41,8 @@ const About: FC<Props> = ({ blok, mainColor, darkTheme }) => {
                 <p className='mb-10 text-base leading-relaxed'>{description}</p>
                 <h3 className='mb-8 text-2xl font-bold'>{subTitle}</h3>
                 <ul
-                  className={`pb-6 list-disc list-inside marker:text-${mainColor}`}
+                  className='pb-6 list-disc list-inside'
+                  style={{ '--marker-color': mainColor } as CSSProperties}
                 >
                   {subItems?.map(({ text }, index) => (
                     <li key={index} className='mb-4 text-base'>
@@ -87,7 +88,8 @@ const About: FC<Props> = ({ blok, mainColor, darkTheme }) => {
                     )}
                   </div>
                   <div
-                    className={`bg-${mainColor} relative z-10 mb-4 flex items-center justify-center overflow-hidden py-12 px-6 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8`}
+                    style={{ backgroundColor: mainColor }}
+                    className='relative z-10 mb-4 flex items-center justify-center overflow-hidden py-12 px-6 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8'
                   >
                     <div>
                       <span className='block text-5xl font-extrabold'>09</span>

@@ -12,12 +12,12 @@ const About2: FC<Props> = ({ blok, mainColor }) => {
   const { image, imageText, label, title, item } = blok;
   return (
     <>
-      <section className='overflow-hidden py-12 lg:py-[100px]'>
+      <section className='overflow-hidden py-12 lg:py-[100px] px-4 sm:px-0'>
         <div className='container mx-auto'>
           <div className='flex flex-wrap justify-between -mx-4'>
             <div className='w-full px-4 lg:w-6/12'>
               <div className='relative mb-12 lg:mb-0'>
-                <div className='mx-auto max-w-[430px] rounded-tl-[50px] sm:rounded-tl-[70px]'>
+                <div className='max-w-[430px] rounded-tl-[50px] sm:rounded-tl-[70px]'>
                   <Image
                     src={image?.filename as string}
                     alt='about image'
@@ -27,7 +27,8 @@ const About2: FC<Props> = ({ blok, mainColor }) => {
                   />
                 </div>
                 <div
-                  className={`bg-${mainColor} absolute bottom-0 right-0 z-10 max-w-[320px] overflow-hidden rounded-tr-[50px] py-10 px-6 text-xl font-bold sm:px-10 sm:text-2xl`}
+                  style={{ backgroundColor: mainColor }}
+                  className='absolute bottom-0 right-0 2xl:right-40 z-10 max-w-[320px] overflow-hidden rounded-tr-[50px] py-10 px-6 text-xl font-bold sm:px-10 sm:text-2xl'
                 >
                   {imageText}
                   <div>

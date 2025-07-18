@@ -91,10 +91,49 @@ export interface AccordionStoryblok {
   [k: string]: any;
 }
 
+export interface BlogStoryblok {
+  label?: string;
+  title?: string;
+  text?: string;
+  articles?: (BlogArticleStoryblok | BlogFormStoryblok)[];
+  component: "blog";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface BlogArticleStoryblok {
+  label?: string;
+  title?: string;
+  image?: AssetStoryblok;
+  date?: string;
+  component: "blog-article";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface BlogFormStoryblok {
+  title?: string;
+  text?: string;
+  inputPlaceholder?: string;
+  buttonText?: string;
+  smallText?: string;
+  component: "blog-form";
+  _uid: string;
+  [k: string]: any;
+}
+
 export interface ButtonStoryblok {
   type: "" | "classic" | "outline";
   text?: string;
   component: "button";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface ConfigPageStoryblok {
+  content: (NavbarStoryblok | FooterStoryblok)[];
+  mainColor?: "" | "blue-500" | "red-500" | "[#9dc73e]" | "purple-500" | "yellow-500";
+  component: "config-page";
   _uid: string;
   [k: string]: any;
 }
@@ -264,6 +303,24 @@ export interface NavItemStoryblok {
   [k: string]: any;
 }
 
+export interface NewsStoryblok {
+  articles?: NewsArticleStoryblok[];
+  component: "news";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface NewsArticleStoryblok {
+  title: string;
+  text: string;
+  image: AssetStoryblok;
+  linkText: string;
+  link: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  component: "news-article";
+  _uid: string;
+  [k: string]: any;
+}
+
 export interface PageStoryblok {
   body?: (
     | NavbarStoryblok
@@ -275,10 +332,13 @@ export interface PageStoryblok {
     | FaqStoryblok
     | HeroStoryblok
     | About2Storyblok
+    | ServicesStoryblok
+    | NewsStoryblok
+    | BlogStoryblok
   )[];
   darkTheme?: boolean;
   font?: "" | "font-sans" | "font-serif" | "font-mono";
-  mainColor?: "" | "blue-500" | "red-500" | "[#9dc73e]" | "purple-500" | "yellow-500";
+  mainColor?: "" | "#2b7fff" | "#fb2c36" | "#9dc73e" | "#ad46ff" | "#f0b100";
   component: "page";
   _uid: string;
   [k: string]: any;
@@ -292,6 +352,28 @@ export interface ProductStoryblok {
   image: AssetStoryblok;
   switchTextPlace?: boolean;
   component: "product";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface ServiceBlockStoryblok {
+  title?: string;
+  text?: string;
+  component: "service-block";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface ServicesStoryblok {
+  label?: string;
+  title?: string;
+  description?: string;
+  image?: AssetStoryblok;
+  imageTitle?: string;
+  imageText?: string;
+  button?: ButtonStoryblok[];
+  textBlock?: ServiceBlockStoryblok[];
+  component: "services";
   _uid: string;
   [k: string]: any;
 }

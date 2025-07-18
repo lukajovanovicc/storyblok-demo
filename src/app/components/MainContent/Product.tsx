@@ -27,7 +27,8 @@ const Product: FC<Props> = ({ blok, mainColor, darkTheme }) => {
           >
             <div className='mb-12 max-w-[465px] lg:mb-0'>
               <span
-                className={`text-${mainColor} xs:text-xl mb-[18px] block text-lg font-semibold`}
+                style={{ color: mainColor }}
+                className='xs:text-xl mb-[18px] block text-lg font-semibold'
               >
                 {label}
               </span>
@@ -35,7 +36,8 @@ const Product: FC<Props> = ({ blok, mainColor, darkTheme }) => {
                 {title}
               </h2>
               <span
-                className={`bg-${mainColor} mb-6 block h-[3px] w-[100px] ${
+                style={{ backgroundColor: mainColor }}
+                className={`mb-6 block h-[3px] w-[100px] ${
                   switchTextPlace ? 'justify-self-end' : ''
                 }`}
               ></span>

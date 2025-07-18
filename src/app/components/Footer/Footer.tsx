@@ -15,7 +15,8 @@ const Footer: FC<Props> = ({ blok, mainColor }) => {
 
   return (
     <footer
-      className={`bg-${mainColor} relative z-10 pb-10 pt-20 lg:pb-20 lg:pt-[120px]`}
+      style={{ backgroundColor: mainColor }}
+      className='relative z-10 pb-10 pt-20 lg:pb-20 lg:pt-[120px]'
     >
       <div className='container mx-auto px-4 md:px-0'>
         <div className='-mx-4 flex flex-wrap'>

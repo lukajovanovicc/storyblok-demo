@@ -28,12 +28,12 @@ const Accordion: FC<Props> = ({ header, text, mainColor, darkTheme }) => {
         }}
       >
         <div
-          className={`mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-${mainColor}/5 text-[${mainColor}]`}
+          style={{ backgroundColor: `${mainColor}/5`, color: mainColor }}
+          className='mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg'
         >
           <svg
-            className={`fill-${mainColor} stroke-${mainColor} duration-200 ease-in-out ${
-              active ? 'rotate-180' : ''
-            }`}
+            style={{ fill: mainColor, stroke: mainColor }}
+            className={`duration-200 ease-in-out ${active ? 'rotate-180' : ''}`}
             width='17'
             height='10'
             viewBox='0 0 17 10'

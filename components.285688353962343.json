@@ -215,6 +215,156 @@
       "component_group_name": "mainContent"
     },
     {
+      "name": "blog",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-07-17T13:59:59.908Z",
+      "updated_at": "2025-07-18T07:43:08.592Z",
+      "id": 69923634827723,
+      "schema": {
+        "label": {
+          "type": "text",
+          "pos": 0,
+          "id": "TFPece1xSVSmJU1tKiej6w"
+        },
+        "title": {
+          "type": "text",
+          "pos": 1,
+          "id": "t3EIz05HRGaJZw4ix2S4_Q"
+        },
+        "text": {
+          "type": "text",
+          "pos": 2,
+          "id": "iT_94Mc5S2WKv23Xggon7A"
+        },
+        "articles": {
+          "type": "bloks",
+          "pos": 3,
+          "id": "03FnfWbaRU-AyDERKqIagg",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "blog-article",
+            "blog-form"
+          ],
+          "maximum": 3
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "blog",
+      "component_group_uuid": "f3647af9-72a5-4016-9d26-debf9897e354",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "metadata": {},
+      "component_group_name": "blog"
+    },
+    {
+      "name": "blog-article",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-07-17T14:01:24.337Z",
+      "updated_at": "2025-07-17T14:02:01.364Z",
+      "id": 69923980657132,
+      "schema": {
+        "label": {
+          "type": "text",
+          "pos": 0,
+          "id": "x_KpmOoDQKux1PBe6UiQBg"
+        },
+        "title": {
+          "type": "text",
+          "pos": 1,
+          "id": "ebksgO7ISpiB5ovEmFEC0g"
+        },
+        "image": {
+          "type": "asset",
+          "pos": 2,
+          "id": "-2R6_WNNTN6H8jswbggHkQ"
+        },
+        "date": {
+          "type": "datetime",
+          "pos": 3,
+          "id": "teEfS7ivRQ6yHZavvHEvmA"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "blog-article",
+      "component_group_uuid": "f3647af9-72a5-4016-9d26-debf9897e354",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "metadata": {},
+      "component_group_name": "blog"
+    },
+    {
+      "name": "blog-form",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-07-18T07:41:49.421Z",
+      "updated_at": "2025-07-18T07:42:51.336Z",
+      "id": 70184588999957,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0,
+          "id": "7O2E0KWyQQWQXHUOokjZJQ"
+        },
+        "text": {
+          "type": "text",
+          "pos": 1,
+          "id": "hX_mkC_LSDKiI5fldv2k2g"
+        },
+        "inputPlaceholder": {
+          "type": "text",
+          "pos": 2,
+          "id": "-AOi6CLDSs2uWcaw4oCS5g"
+        },
+        "buttonText": {
+          "type": "text",
+          "pos": 3,
+          "id": "6eex0MumTqeMZA6P09hBBw"
+        },
+        "smallText": {
+          "type": "text",
+          "pos": 4,
+          "id": "9SNsjwHZT7eC2gkAgDYyNA"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "blog-form",
+      "component_group_uuid": "f3647af9-72a5-4016-9d26-debf9897e354",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "metadata": {},
+      "component_group_name": "blog"
+    },
+    {
       "name": "button",
       "display_name": null,
       "description": "",
@@ -274,6 +424,86 @@
       "content_type_asset_preview": null,
       "metadata": {},
       "component_group_name": "mainContent"
+    },
+    {
+      "name": "config-page",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-07-17T09:19:24.415Z",
+      "updated_at": "2025-07-17T09:58:16.755Z",
+      "id": 69854676653856,
+      "schema": {
+        "content": {
+          "type": "bloks",
+          "pos": 0,
+          "required": true,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "navbar",
+            "footer"
+          ],
+          "id": "Kdxp6I9iRnq0X4SNBDdvbw"
+        },
+        "tab-0d1d0809-fbd6-4b78-b2c7-ac6286680c52": {
+          "display_name": "Styles",
+          "keys": [
+            "mainColor"
+          ],
+          "pos": 1,
+          "type": "tab",
+          "id": "DR0ICfvWS3iyx6xihmgMUg"
+        },
+        "mainColor": {
+          "type": "option",
+          "pos": 2,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "d9d1a362-c7b2-4f7c-a786-c5bb1bff0127",
+              "name": "blue",
+              "value": "blue-500"
+            },
+            {
+              "_uid": "74804cc6-e1cd-4b5d-991b-2083a2101225",
+              "value": "red-500",
+              "name": "red"
+            },
+            {
+              "_uid": "8742683f-1338-4633-b133-fac4d1a28505",
+              "value": "[#9dc73e]",
+              "name": "green"
+            },
+            {
+              "_uid": "22b46d0b-5ad7-4897-8367-e89ca10c28ae",
+              "value": "purple-500",
+              "name": "purple"
+            },
+            {
+              "_uid": "a9b09240-cbc9-4e56-ba58-286909006ed4",
+              "value": "yellow-500",
+              "name": "yellow"
+            }
+          ],
+          "default_value": "[#9dc73e]",
+          "id": "Ti1P75B_Ttm_dy2avA_m2w"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "config-page",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "metadata": {}
     },
     {
       "name": "contact",
@@ -755,11 +985,109 @@
       "component_group_name": "navigation"
     },
     {
+      "name": "news",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-07-17T13:57:13.483Z",
+      "updated_at": "2025-07-17T14:56:17.140Z",
+      "id": 69922953167264,
+      "schema": {
+        "articles": {
+          "type": "bloks",
+          "pos": 3,
+          "id": "IOATm-BORW-2iSq3Xiv4IQ",
+          "maximum": 3,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "news-article"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "news",
+      "component_group_uuid": "f3647af9-72a5-4016-9d26-debf9897e354",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "metadata": {},
+      "component_group_name": "blog"
+    },
+    {
+      "name": "news-article",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-07-17T13:58:51.129Z",
+      "updated_at": "2025-07-17T14:54:39.533Z",
+      "id": 69923353125313,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 1,
+          "id": "rfOlVtTARFemph1ETCAAjw",
+          "required": true,
+          "translatable": true
+        },
+        "text": {
+          "type": "text",
+          "pos": 2,
+          "id": "1ihYw1gGR6OsRbVKFABU9Q",
+          "required": true,
+          "translatable": true
+        },
+        "image": {
+          "type": "asset",
+          "pos": 3,
+          "id": "XatNnitLQqWEmcNCrxLHRQ",
+          "required": true,
+          "translatable": true
+        },
+        "linkText": {
+          "type": "text",
+          "pos": 4,
+          "id": "BvoxfZjFTY2JZSQQCs982A",
+          "required": true,
+          "translatable": true
+        },
+        "link": {
+          "type": "multilink",
+          "pos": 5,
+          "id": "ogkbvtxPRyq4N3KQYuC5WA",
+          "required": true,
+          "translatable": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "news-article",
+      "component_group_uuid": "f3647af9-72a5-4016-9d26-debf9897e354",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "metadata": {},
+      "component_group_name": "blog"
+    },
+    {
       "name": "page",
       "display_name": null,
       "description": null,
       "created_at": "2025-07-10T11:48:24.900Z",
-      "updated_at": "2025-07-16T14:30:43.682Z",
+      "updated_at": "2025-07-17T14:50:18.225Z",
       "id": 67414036076648,
       "schema": {
         "body": {
@@ -776,7 +1104,10 @@
             "contact",
             "FAQ",
             "hero",
-            "about2"
+            "about2",
+            "services",
+            "news",
+            "blog"
           ]
         },
         "tab-005acfa3-2186-40f2-b723-2a481f8ceb07": {
@@ -828,30 +1159,30 @@
             {
               "_uid": "0dc90fb4-afcd-443b-8f37-a47ddfd5cdf2",
               "name": "blue",
-              "value": "blue-500"
+              "value": "#2b7fff"
             },
             {
               "_uid": "e887cfe9-87ff-4c07-8ed6-a5ed1477d9d7",
-              "value": "red-500",
+              "value": "#fb2c36",
               "name": "red"
             },
             {
               "_uid": "bfad702c-d40c-4a49-ad04-e594a9cf5bf9",
-              "value": "[#9dc73e]",
+              "value": "#9dc73e",
               "name": "green"
             },
             {
               "_uid": "470d7f46-79a0-40ca-ac73-519b3f7cfd4d",
-              "value": "purple-500",
+              "value": "#ad46ff",
               "name": "purple"
             },
             {
               "_uid": "e0928336-b650-463f-b52d-73b6ea1c64fa",
-              "value": "yellow-500",
+              "value": "#f0b100",
               "name": "yellow"
             }
           ],
-          "default_value": "[#9dc73e]",
+          "default_value": "#9dc73e",
           "id": "hMa6I0TbQ7-Xb6apTuf4fA"
         }
       },
@@ -946,6 +1277,124 @@
       "content_type_asset_preview": null,
       "metadata": {},
       "component_group_name": "home"
+    },
+    {
+      "name": "service-block",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-07-17T11:50:48.899Z",
+      "updated_at": "2025-07-17T11:51:26.717Z",
+      "id": 69891886697079,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0,
+          "id": "wCrxJabFRVKTsEN66CfUpg"
+        },
+        "text": {
+          "type": "text",
+          "pos": 1,
+          "id": "Z49-ynNPTleDfZAQLfWvgQ"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "service-block",
+      "component_group_uuid": "eb64a24e-8870-4fdb-98b6-c799d0cfddfb",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "metadata": {},
+      "component_group_name": "services"
+    },
+    {
+      "name": "services",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-07-17T11:44:50.285Z",
+      "updated_at": "2025-07-17T11:51:48.354Z",
+      "id": 69890417810002,
+      "schema": {
+        "label": {
+          "type": "text",
+          "pos": 0,
+          "id": "39ZB-aMUQlS0-l5sV8-BBg",
+          "translatable": true
+        },
+        "title": {
+          "type": "text",
+          "pos": 1,
+          "id": "0LuT3GlPTgWEONE2hgehUA",
+          "translatable": true
+        },
+        "description": {
+          "type": "text",
+          "pos": 2,
+          "id": "DwZBVAVYSMejri-YYZc7Cg",
+          "translatable": true
+        },
+        "image": {
+          "type": "asset",
+          "pos": 3,
+          "id": "AwPBgjvtSKiviu6EIAkjtw"
+        },
+        "imageTitle": {
+          "type": "text",
+          "pos": 4,
+          "id": "AtqVzxVkRCyIKa_P25LSKw"
+        },
+        "imageText": {
+          "type": "text",
+          "pos": 5,
+          "id": "8xofsusSRqqOjSjBiazkrQ",
+          "translatable": true
+        },
+        "button": {
+          "type": "bloks",
+          "pos": 6,
+          "maximum": 1,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "button"
+          ],
+          "id": "1tG4tAQmRSqjwv1259SOBw"
+        },
+        "textBlock": {
+          "type": "bloks",
+          "pos": 7,
+          "id": "GeNHXdN_Q0KzbzOIUURDZg",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "service-block"
+          ],
+          "maximum": 3
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "services",
+      "component_group_uuid": "eb64a24e-8870-4fdb-98b6-c799d0cfddfb",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "metadata": {},
+      "component_group_name": "services"
     },
     {
       "name": "slide",
