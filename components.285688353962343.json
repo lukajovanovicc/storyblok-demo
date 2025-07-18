@@ -272,18 +272,21 @@
       "display_name": null,
       "description": "",
       "created_at": "2025-07-17T14:01:24.337Z",
-      "updated_at": "2025-07-17T14:02:01.364Z",
+      "updated_at": "2025-07-18T08:09:10.069Z",
       "id": 69923980657132,
       "schema": {
         "label": {
           "type": "text",
           "pos": 0,
-          "id": "x_KpmOoDQKux1PBe6UiQBg"
+          "id": "x_KpmOoDQKux1PBe6UiQBg",
+          "translatable": true
         },
         "title": {
           "type": "text",
           "pos": 1,
-          "id": "ebksgO7ISpiB5ovEmFEC0g"
+          "id": "ebksgO7ISpiB5ovEmFEC0g",
+          "translatable": true,
+          "required": true
         },
         "image": {
           "type": "asset",
@@ -318,33 +321,39 @@
       "display_name": null,
       "description": "",
       "created_at": "2025-07-18T07:41:49.421Z",
-      "updated_at": "2025-07-18T07:42:51.336Z",
+      "updated_at": "2025-07-18T08:08:33.920Z",
       "id": 70184588999957,
       "schema": {
         "title": {
           "type": "text",
           "pos": 0,
-          "id": "7O2E0KWyQQWQXHUOokjZJQ"
+          "id": "7O2E0KWyQQWQXHUOokjZJQ",
+          "translatable": true,
+          "required": true
         },
-        "text": {
+        "subtitle": {
           "type": "text",
           "pos": 1,
-          "id": "hX_mkC_LSDKiI5fldv2k2g"
+          "id": "hX_mkC_LSDKiI5fldv2k2g",
+          "translatable": true
         },
         "inputPlaceholder": {
           "type": "text",
           "pos": 2,
-          "id": "-AOi6CLDSs2uWcaw4oCS5g"
+          "id": "-AOi6CLDSs2uWcaw4oCS5g",
+          "translatable": true
         },
         "buttonText": {
           "type": "text",
           "pos": 3,
-          "id": "6eex0MumTqeMZA6P09hBBw"
+          "id": "6eex0MumTqeMZA6P09hBBw",
+          "translatable": true
         },
-        "smallText": {
+        "metaText": {
           "type": "text",
           "pos": 4,
-          "id": "9SNsjwHZT7eC2gkAgDYyNA"
+          "id": "9SNsjwHZT7eC2gkAgDYyNA",
+          "translatable": true
         }
       },
       "image": null,

@@ -1,28 +1,31 @@
 import React, { FC } from 'react';
 import { BlogStoryblok } from '../../../../../component-types-sb';
+import Form from './Form';
+import Article from './Article';
 
 interface Props {
   blok: BlogStoryblok;
+  mainColor: string;
 }
 
-const Blog: FC<Props> = (blok) => {
-  const {} = blok;
+const Blog: FC<Props> = ({ blok, mainColor }) => {
+  const { label, title, text, articles } = blok;
   return (
-    <section className='bg-white pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]'>
+    <section className='bg-white py-10 lg:py-20'>
       <div className='container mx-auto'>
         <div className='-mx-4 flex flex-wrap justify-center'>
           <div className='relative w-full px-4'>
             <div className='mb-[60px] max-w-[510px] lg:mb-20'>
-              <span className='mb-2 block text-lg font-semibold text-primary'>
-                Latest News
+              <span
+                style={{ color: mainColor }}
+                className='mb-2 block text-lg font-semibold'
+              >
+                {label}
               </span>
-              <h2 className='mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px]'>
-                Recent Blog Articles
+              <h2 className='mb-4 text-3xl font-bold sm:text-4xl md:text-[40px]'>
+                {title}
               </h2>
-              <p className='text-base text-body-color dark:text-dark-6'>
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
-              </p>
+              <p className='text-base'>{text}</p>
             </div>
             <div className='absolute right-4 top-0 z-[-1]'>
               <svg
@@ -647,26 +650,45 @@ const Blog: FC<Props> = (blok) => {
         </div>
 
         <div className='-mx-4 flex flex-wrap'>
-          <BlogItem
-            image='https://cdn.tailgrids.com/assets/images/application/blogs/blog-04/image-01.jpg'
-            subtitle='Management'
-            title='Meet AutoManage, the best AI management tools'
-            date='26 Feb 2023'
-            comment='05'
-          />
-          <BlogItem
-            image='https://cdn.tailgrids.com/assets/images/application/blogs/blog-04/image-02.jpg'
-            subtitle='Graphic Design'
-            title='50+ best way to learn graphics design in 30 days'
-            date='01 Apr 2023'
-            comment='10'
-          />
-
-          <BlogNewsletter
-            subtitle='Join our newsletter!'
-            title='Enter your email to receive our latest newsletter.'
-            metaText="Don't worry, we don't spam"
-          />
+          {articles?.map(
+            (
+              {
+                component,
+                title,
+                subtitle,
+                image,
+                label,
+                date,
+                inputPlaceholder,
+                buttonText,
+                metaText,
+              },
+              index
+            ) => {
+              return component === 'blog-article' ? (
+                <Article
+                  key={index}
+                  image={image?.filename as string}
+                  alt={image?.alt as string}
+                  color={mainColor}
+                  subtitle={label}
+                  title={title}
+                  date={date}
+                  comment='05'
+                />
+              ) : (
+                <Form
+                  key={index}
+                  subtitle={subtitle}
+                  title={title}
+                  metaText={metaText}
+                  color={mainColor}
+                  placeholder={inputPlaceholder}
+                  buttonText={buttonText}
+                />
+              );
+            }
+          )}
         </div>
       </div>
     </section>
@@ -674,374 +696,3 @@ const Blog: FC<Props> = (blok) => {
 };
 
 export default Blog;
-
-const BlogItem = ({ image, subtitle, title, date, comment }) => {
-  return (
-    <div className='w-full px-4 md:w-1/2 lg:w-1/3'>
-      <div className='mb-10 w-full'>
-        <div className='mb-8 overflow-hidden rounded'>
-          <img src={image} alt='image' className='w-full' />
-        </div>
-        <div>
-          <span className='mb-3 inline-block text-base font-semibold text-primary'>
-            {subtitle}
-          </span>
-          <h3>
-            <a
-              href='#'
-              className='mb-5 inline-block text-xl font-semibold text-dark hover:text-primary dark:text-white sm:text-2xl lg:text-xl xl:text-2xl'
-            >
-              {title}
-            </a>
-          </h3>
-          <div className='flex items-center'>
-            <p className='mr-8 flex items-center text-sm font-medium text-body-color'>
-              <span className='mr-3'>
-                <svg
-                  width='16'
-                  height='16'
-                  viewBox='0 0 16 16'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    d='M14 2.65002H12.7V2.10002C12.7 1.80002 12.45 1.52502 12.125 1.52502C11.8 1.52502 11.55 1.77502 11.55 2.10002V2.65002H4.42499V2.10002C4.42499 1.80002 4.17499 1.52502 3.84999 1.52502C3.52499 1.52502 3.27499 1.77502 3.27499 2.10002V2.65002H1.99999C1.14999 2.65002 0.424988 3.35002 0.424988 4.22502V12.925C0.424988 13.775 1.12499 14.5 1.99999 14.5H14C14.85 14.5 15.575 13.8 15.575 12.925V4.20002C15.575 3.35002 14.85 2.65002 14 2.65002ZM1.57499 7.30002H3.69999V9.77503H1.57499V7.30002ZM4.82499 7.30002H7.44999V9.77503H4.82499V7.30002ZM7.44999 10.9V13.35H4.82499V10.9H7.44999ZM8.57499 10.9H11.2V13.35H8.57499V10.9ZM8.57499 9.77503V7.30002H11.2V9.77503H8.57499ZM12.3 7.30002H14.425V9.77503H12.3V7.30002ZM1.99999 3.77502H3.29999V4.30002C3.29999 4.60002 3.54999 4.87502 3.87499 4.87502C4.19999 4.87502 4.44999 4.62502 4.44999 4.30002V3.77502H11.6V4.30002C11.6 4.60002 11.85 4.87502 12.175 4.87502C12.5 4.87502 12.75 4.62502 12.75 4.30002V3.77502H14C14.25 3.77502 14.45 3.97502 14.45 4.22502V6.17502H1.57499V4.22502C1.57499 3.97502 1.74999 3.77502 1.99999 3.77502ZM1.57499 12.9V10.875H3.69999V13.325H1.99999C1.74999 13.35 1.57499 13.15 1.57499 12.9ZM14 13.35H12.3V10.9H14.425V12.925C14.45 13.15 14.25 13.35 14 13.35Z'
-                    fill='currentColor'
-                  />
-                </svg>
-              </span>
-              {date}
-            </p>
-            <p className='flex items-center text-sm font-medium text-body-color'>
-              <span className='mr-3'>
-                <svg
-                  width='16'
-                  height='16'
-                  viewBox='0 0 16 16'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    d='M11.1 4.875H4.64998C4.34998 4.875 4.07498 5.125 4.07498 5.45C4.07498 5.775 4.32498 6.025 4.64998 6.025H11.125C11.425 6.025 11.7 5.775 11.7 5.45C11.7 5.125 11.425 4.875 11.1 4.875Z'
-                    fill='currentColor'
-                  />
-                  <path
-                    d='M9.79998 7.92493H4.64998C4.34998 7.92493 4.07498 8.17493 4.07498 8.49993C4.07498 8.82493 4.32498 9.07493 4.64998 9.07493H9.79998C10.1 9.07493 10.375 8.82493 10.375 8.49993C10.375 8.17493 10.1 7.92493 9.79998 7.92493Z'
-                    fill='currentColor'
-                  />
-                  <path
-                    d='M14 1.97498H1.99999C1.14999 1.97498 0.424988 2.67498 0.424988 3.54998V12.975C0.424988 13.375 0.649988 13.75 1.02499 13.925C1.17499 14 1.32499 14.025 1.47499 14.025C1.72499 14.025 1.94999 13.95 2.14999 13.775L4.27499 12.025H14C14.85 12.025 15.575 11.325 15.575 10.45V3.54998C15.575 2.67498 14.85 1.97498 14 1.97498ZM14.45 10.45C14.45 10.7 14.25 10.9 14 10.9H4.07499C3.94999 10.9 3.82499 10.95 3.72499 11.025L1.57499 12.8V3.54998C1.57499 3.29998 1.77499 3.09998 2.02499 3.09998H14.025C14.275 3.09998 14.475 3.29998 14.475 3.54998V10.45H14.45Z'
-                    fill='currentColor'
-                  />
-                </svg>
-              </span>
-              {comment}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const BlogNewsletter = ({ subtitle, title, metaText }) => {
-  return (
-    <div className='w-full px-4 md:w-1/2 lg:w-1/3'>
-      <div className='relative mx-auto mb-10 max-w-[370px] overflow-hidden rounded bg-primary px-11 py-[60px] text-center lg:px-8'>
-        <h3 className='mb-2 text-2xl font-semibold text-white'>{subtitle}</h3>
-        <p className='mb-8 text-base text-white'>{title}</p>
-        <form>
-          <input
-            type='email'
-            placeholder='Your email address'
-            className='mb-4 w-full rounded border border-transparent bg-white bg-opacity-20 p-3 text-center text-sm font-medium text-white placeholder-white placeholder-opacity-60 outline-none focus:border-white focus-visible:shadow-none'
-          />
-          <input
-            type='submit'
-            value='Subscribe Now'
-            className='mb-6 w-full cursor-pointer rounded bg-[#13C296] p-3 text-center text-sm font-medium text-white transition hover:bg-opacity-90'
-          />
-        </form>
-        <p className='text-sm font-medium text-white'>{metaText}</p>
-        <div>
-          <span className='absolute right-0 top-0'>
-            <svg
-              width='46'
-              height='46'
-              viewBox='0 0 46 46'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <circle
-                cx='1.39737'
-                cy='44.6026'
-                r='1.39737'
-                transform='rotate(-90 1.39737 44.6026)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='1.39737'
-                cy='7.9913'
-                r='1.39737'
-                transform='rotate(-90 1.39737 7.9913)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='13.6943'
-                cy='44.6026'
-                r='1.39737'
-                transform='rotate(-90 13.6943 44.6026)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='13.6943'
-                cy='7.9913'
-                r='1.39737'
-                transform='rotate(-90 13.6943 7.9913)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='25.9911'
-                cy='44.6026'
-                r='1.39737'
-                transform='rotate(-90 25.9911 44.6026)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='25.9911'
-                cy='7.9913'
-                r='1.39737'
-                transform='rotate(-90 25.9911 7.9913)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='38.288'
-                cy='44.6026'
-                r='1.39737'
-                transform='rotate(-90 38.288 44.6026)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='38.288'
-                cy='7.9913'
-                r='1.39737'
-                transform='rotate(-90 38.288 7.9913)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='1.39737'
-                cy='32.3058'
-                r='1.39737'
-                transform='rotate(-90 1.39737 32.3058)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='13.6943'
-                cy='32.3058'
-                r='1.39737'
-                transform='rotate(-90 13.6943 32.3058)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='25.9911'
-                cy='32.3058'
-                r='1.39737'
-                transform='rotate(-90 25.9911 32.3058)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='38.288'
-                cy='32.3058'
-                r='1.39737'
-                transform='rotate(-90 38.288 32.3058)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='1.39737'
-                cy='20.0086'
-                r='1.39737'
-                transform='rotate(-90 1.39737 20.0086)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='13.6943'
-                cy='20.0086'
-                r='1.39737'
-                transform='rotate(-90 13.6943 20.0086)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='25.9911'
-                cy='20.0086'
-                r='1.39737'
-                transform='rotate(-90 25.9911 20.0086)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='38.288'
-                cy='20.0086'
-                r='1.39737'
-                transform='rotate(-90 38.288 20.0086)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-            </svg>
-          </span>
-          <span className='absolute bottom-0 left-0'>
-            <svg
-              width='46'
-              height='46'
-              viewBox='0 0 46 46'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <circle
-                cx='1.39737'
-                cy='44.6026'
-                r='1.39737'
-                transform='rotate(-90 1.39737 44.6026)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='1.39737'
-                cy='7.9913'
-                r='1.39737'
-                transform='rotate(-90 1.39737 7.9913)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='13.6943'
-                cy='44.6026'
-                r='1.39737'
-                transform='rotate(-90 13.6943 44.6026)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='13.6943'
-                cy='7.9913'
-                r='1.39737'
-                transform='rotate(-90 13.6943 7.9913)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='25.9911'
-                cy='44.6026'
-                r='1.39737'
-                transform='rotate(-90 25.9911 44.6026)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='25.9911'
-                cy='7.9913'
-                r='1.39737'
-                transform='rotate(-90 25.9911 7.9913)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='38.288'
-                cy='44.6026'
-                r='1.39737'
-                transform='rotate(-90 38.288 44.6026)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='38.288'
-                cy='7.9913'
-                r='1.39737'
-                transform='rotate(-90 38.288 7.9913)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='1.39737'
-                cy='32.3058'
-                r='1.39737'
-                transform='rotate(-90 1.39737 32.3058)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='13.6943'
-                cy='32.3058'
-                r='1.39737'
-                transform='rotate(-90 13.6943 32.3058)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='25.9911'
-                cy='32.3058'
-                r='1.39737'
-                transform='rotate(-90 25.9911 32.3058)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='38.288'
-                cy='32.3058'
-                r='1.39737'
-                transform='rotate(-90 38.288 32.3058)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='1.39737'
-                cy='20.0086'
-                r='1.39737'
-                transform='rotate(-90 1.39737 20.0086)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='13.6943'
-                cy='20.0086'
-                r='1.39737'
-                transform='rotate(-90 13.6943 20.0086)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='25.9911'
-                cy='20.0086'
-                r='1.39737'
-                transform='rotate(-90 25.9911 20.0086)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-              <circle
-                cx='38.288'
-                cy='20.0086'
-                r='1.39737'
-                transform='rotate(-90 38.288 20.0086)'
-                fill='white'
-                fillOpacity='0.44'
-              ></circle>
-            </svg>
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-};

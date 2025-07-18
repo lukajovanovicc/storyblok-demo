@@ -103,7 +103,7 @@ export interface BlogStoryblok {
 
 export interface BlogArticleStoryblok {
   label?: string;
-  title?: string;
+  title: string;
   image?: AssetStoryblok;
   date?: string;
   component: "blog-article";
@@ -112,11 +112,11 @@ export interface BlogArticleStoryblok {
 }
 
 export interface BlogFormStoryblok {
-  title?: string;
-  text?: string;
+  title: string;
+  subtitle?: string;
   inputPlaceholder?: string;
   buttonText?: string;
-  smallText?: string;
+  metaText?: string;
   component: "blog-form";
   _uid: string;
   [k: string]: any;

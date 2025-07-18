@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC } from 'react';
+import React, { FC } from 'react';
 import { AboutStoryblok } from '../../../../component-types-sb';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -20,6 +20,7 @@ const About: FC<Props> = ({ blok, mainColor, darkTheme }) => {
     images,
     switchTextPlace,
   } = blok;
+
   return (
     <>
       <section className='relative py-[50px]  lg:py-[70px]'>
@@ -42,7 +43,7 @@ const About: FC<Props> = ({ blok, mainColor, darkTheme }) => {
                 <h3 className='mb-8 text-2xl font-bold'>{subTitle}</h3>
                 <ul
                   className='pb-6 list-disc list-inside'
-                  style={{ '--marker-color': mainColor } as CSSProperties}
+                  style={{ marker: mainColor }}
                 >
                   {subItems?.map(({ text }, index) => (
                     <li key={index} className='mb-4 text-base'>
