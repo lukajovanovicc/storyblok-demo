@@ -11,7 +11,7 @@ interface Props {
 const Blog: FC<Props> = ({ blok, mainColor }) => {
   const { label, title, text, articles } = blok;
   return (
-    <section className='bg-white py-10 lg:py-20'>
+    <section className='py-10 lg:py-20 px-4 sm:px-0'>
       <div className='container mx-auto'>
         <div className='-mx-4 flex flex-wrap justify-center'>
           <div className='relative w-full px-4'>

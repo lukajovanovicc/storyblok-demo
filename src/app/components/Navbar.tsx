@@ -21,7 +21,7 @@ const Navbar: FC<Props> = ({ blok, mainColor, page }) => {
       className='flex w-full items-center justify-center'
     >
       <div className='container px-4 md:px-0'>
-        <div className='relative py-4 sm:py-0 -mx-4 flex items-center justify-between'>
+        <div className='relative py-4 lg:py-0 -mx-4 flex items-center justify-between'>
           <div className='w-40 max-w-full px-4'>
             <Link href='/home'>
               <Image
@@ -48,8 +48,10 @@ const Navbar: FC<Props> = ({ blok, mainColor, page }) => {
               </button>
               <nav
                 style={{ backgroundColor: mainColor }}
-                className={`absolute right-4 top-full z-50 w-full max-w-[250px] rounded-lg px-6 py-5 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:py-0 lg:shadow-none ${
-                  !open && 'hidden'
+                className={`absolute right-0 duration-300 top-full rounded-b-lg z-50 w-full max-w-full px-6 py-5 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:py-0 lg:shadow-none ${
+                  !open
+                    ? 'h-0 opacity-0 -translate-y-80 lg:h-auto lg:translate-y-0 lg:opacity-100'
+                    : ' h-[30vh]'
                 } `}
               >
                 <ul className='block lg:flex'>
