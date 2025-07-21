@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import NewsItem from './NewsItem';
 import { NewsStoryblok } from '../../../../../component-types-sb';
+import { storyblokEditable } from '@storyblok/react/rsc';
 
 interface Props {
   blok: NewsStoryblok;
@@ -9,7 +10,10 @@ interface Props {
 const News: FC<Props> = ({ blok }) => {
   const { articles } = blok;
   return (
-    <section className='py-10 lg:py-[90px] justify-self-center px-4 sm:px-0'>
+    <section
+      className='py-10 lg:py-[90px] justify-self-center px-4 sm:px-0'
+      {...storyblokEditable(blok)}
+    >
       <div className='container'>
         <div className='-mx-4 flex flex-wrap'>
           {articles?.map(({ image, title, text, link, linkText }, index) => (

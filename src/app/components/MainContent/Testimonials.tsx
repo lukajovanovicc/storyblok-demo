@@ -5,6 +5,7 @@ import 'swiper/css';
 import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react';
 import SingleTestimonial from './SingleTestimonial';
 import { TestimonialsStoryblok } from '../../../../component-types-sb';
+import { storyblokEditable } from '@storyblok/react/rsc';
 
 interface Props {
   blok: TestimonialsStoryblok;
@@ -27,7 +28,7 @@ const Testimonials: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   }, []);
 
   return (
-    <section className='py-12 lg:py-[70px]'>
+    <section className='py-12 lg:py-[70px]' {...storyblokEditable(blok)}>
       <div className='container mx-auto px-4 md:px-0'>
         <div className='flex flex-wrap justify-center'>
           <div className='w-full md:w-11/12 lg:w-10/12 xl:w-8/12'>

@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { ServicesStoryblok } from '../../../../component-types-sb';
 import Image from 'next/image';
 import Button from '../Button';
+import { storyblokEditable } from '@storyblok/react/rsc';
 
 interface Props {
   blok: ServicesStoryblok;
@@ -23,7 +24,10 @@ const Services: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   } = blok;
 
   return (
-    <section className='py-20 lg:py-[90px] px-4 sm:px-0'>
+    <section
+      className='py-20 lg:py-[90px] px-4 sm:px-0'
+      {...storyblokEditable(blok)}
+    >
       <div className='container mx-auto'>
         <div className='mb-10 flex flex-wrap items-end justify-between lg:mb-[70px] lg:flex-nowrap'>
           <div className='mb-5 sm:ml-4 w-full max-w-[450px]'>
@@ -43,7 +47,7 @@ const Services: FC<Props> = ({ blok, mainColor, darkTheme }) => {
         </div>
 
         <div className='-mx-4 flex flex-wrap  px-4'>
-          <div className='w-full sm:px-4 lg:w-6/12 xl:w-6/12'>
+          <div className='w-full lg:px-4 lg:w-6/12 xl:w-6/12'>
             <div className='relative overflow-hidden rounded-2xl'>
               <Image
                 src={image?.filename as string}
@@ -73,7 +77,7 @@ const Services: FC<Props> = ({ blok, mainColor, darkTheme }) => {
             </div>
           </div>
 
-          <div className='grid sm:grid-rows-2 sm:w-1/2 sm:grid-cols-2 gap-4 mt-4 sm:mt-0'>
+          <div className='grid lg:grid-rows-2 lg:w-1/2 lg:grid-cols-2 gap-4 mt-4 lg:mt-0'>
             {textBlock?.map(({ title, text }, index) => (
               <div
                 key={index}

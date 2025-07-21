@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { HeroStoryblok } from '../../../../component-types-sb';
 import Link from 'next/link';
 import Button from '../Button';
+import { storyblokEditable } from '@storyblok/react/rsc';
 
 interface Props {
   blok: HeroStoryblok;
@@ -12,7 +13,10 @@ interface Props {
 const Hero: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   const { label, title, description, buttons } = blok;
   return (
-    <div className='relative z-10 overflow-hidden py-[120px] md:py-[150px] lg:py-[180px] h-[90vh]'>
+    <div
+      className='relative z-10 overflow-hidden py-[120px] md:py-[150px] lg:py-[180px] h-[90vh]'
+      {...storyblokEditable(blok)}
+    >
       <div className='container mx-auto'>
         <div className='-mx-4 flex flex-wrap justify-center'>
           <div className='w-full px-4'>

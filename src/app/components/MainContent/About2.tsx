@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { About2Storyblok } from '../../../../component-types-sb';
 import Image from 'next/image';
+import { storyblokEditable } from '@storyblok/react/rsc';
 
 interface Props {
   blok: About2Storyblok;
@@ -12,12 +13,15 @@ const About2: FC<Props> = ({ blok, mainColor }) => {
   const { image, imageText, label, title, item } = blok;
   return (
     <>
-      <section className='overflow-hidden py-12 lg:py-[100px] px-4 sm:px-0'>
+      <section
+        className='overflow-hidden py-12 lg:py-[100px] px-4 sm:px-0'
+        {...storyblokEditable(blok)}
+      >
         <div className='container mx-auto'>
           <div className='flex flex-wrap justify-between -mx-4'>
             <div className='w-full px-4 lg:w-6/12'>
               <div className='relative mb-12 lg:mb-0'>
-                <div className='max-w-[430px] rounded-tl-[50px] sm:rounded-tl-[70px]'>
+                <div className='mr-8 sm:mr-0 max-w-[430px] rounded-tl-[50px] sm:rounded-tl-[70px]'>
                   <Image
                     src={image?.filename as string}
                     alt='about image'

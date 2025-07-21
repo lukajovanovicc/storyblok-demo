@@ -3,6 +3,7 @@ import { AboutStoryblok } from '../../../../component-types-sb';
 import Link from 'next/link';
 import Image from 'next/image';
 import Button from '../Button';
+import { storyblokEditable } from '@storyblok/react/rsc';
 
 interface Props {
   blok: AboutStoryblok;
@@ -23,15 +24,18 @@ const About: FC<Props> = ({ blok, mainColor, darkTheme }) => {
 
   return (
     <>
-      <section className='relative py-[50px]  lg:py-[70px]'>
+      <section
+        className='relative py-[50px]  lg:py-[70px]'
+        {...storyblokEditable(blok)}
+      >
         <div className='container mx-auto px-4 md:px-0'>
           <div
-            className={`flex ${
-              switchTextPlace ? 'flex-row-reverse' : ''
+            className={`flex flex-col sm:flex-row ${
+              switchTextPlace ? 'flex-col-reverse sm:flex-row-reverse' : ''
             } -mx-4`}
           >
             <div
-              className={`w-full px-4 lg:w-1/2 ${
+              className={`w-full px-4  ${
                 switchTextPlace && 'flex justify-end'
               }`}
             >
@@ -59,10 +63,10 @@ const About: FC<Props> = ({ blok, mainColor, darkTheme }) => {
               </div>
             </div>
 
-            <div className='w-full px-4 lg:w-1/2'>
+            <div className='w-full px-4 '>
               <div className='flex flex-wrap -mx-2 sm:-mx-4 lg:-mx-2 xl:-mx-4'>
                 <div className='w-full px-2 sm:w-1/2 sm:px-4 lg:px-2 xl:px-4'>
-                  <div className='mb-4 sm:mb-8 sm:h-[400px] md:h-[540px] lg:h-[400px] xl:h-[500px]'>
+                  <div className='mb-4 sm:mb-8 h-[300px] sm:h-[400px] md:h-[540px] lg:h-[400px] xl:h-[500px]'>
                     {images && images.length > 0 && (
                       <Image
                         src={images?.[0].filename as string}
@@ -76,7 +80,7 @@ const About: FC<Props> = ({ blok, mainColor, darkTheme }) => {
                   </div>
                 </div>
                 <div className='w-full px-2 sm:w-1/2 sm:px-4 lg:px-2 xl:px-4'>
-                  <div className='mb-4 sm:mb-8 sm:h-[220px] md:h-[346px] lg:mb-4 lg:h-[225px] xl:mb-8 xl:h-[310px]'>
+                  <div className='mb-4 sm:mb-8 h-[150px] sm:h-[220px] md:h-[346px] lg:mb-4 lg:h-[225px] xl:mb-8 xl:h-[310px]'>
                     {images && images.length > 0 && (
                       <Image
                         src={images?.[1].filename as string}

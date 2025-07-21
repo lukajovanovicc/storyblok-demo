@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Accordion from '../Accordion';
 import { FaqStoryblok } from '../../../../component-types-sb';
+import { storyblokEditable } from '@storyblok/react/rsc';
 
 interface Props {
   blok: FaqStoryblok;
@@ -11,7 +12,10 @@ interface Props {
 const FAQ: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   const { label, title, description, accordions } = blok;
   return (
-    <section className='relative z-20 overflow-hidden py-12 lg:py-[70px] p-4 sm:p-0'>
+    <section
+      className='relative z-20 overflow-hidden py-12 lg:py-[70px] p-4 sm:p-0'
+      {...storyblokEditable(blok)}
+    >
       <div className='container mx-auto'>
         <div className='-mx-4 flex flex-wrap'>
           <div className='w-full px-4'>

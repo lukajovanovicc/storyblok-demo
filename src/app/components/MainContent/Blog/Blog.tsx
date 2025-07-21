@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { BlogStoryblok } from '../../../../../component-types-sb';
 import Form from './Form';
 import Article from './Article';
+import { storyblokEditable } from '@storyblok/react/rsc';
 
 interface Props {
   blok: BlogStoryblok;
@@ -12,7 +13,7 @@ const Blog: FC<Props> = ({ blok, mainColor }) => {
   const { label, title, text, articles } = blok;
   return (
     <section className='py-10 lg:py-20 px-4 sm:px-0'>
-      <div className='container mx-auto'>
+      <div className='container mx-auto' {...storyblokEditable(blok)}>
         <div className='-mx-4 flex flex-wrap justify-center'>
           <div className='relative w-full px-4'>
             <div className='mb-[60px] max-w-[510px] lg:mb-20'>

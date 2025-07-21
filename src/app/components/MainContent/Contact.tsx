@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { ContactStoryblok } from '../../../../component-types-sb';
 import Button from '../Button';
+import { storyblokEditable } from '@storyblok/react/rsc';
 
 interface Props {
   blok: ContactStoryblok;
@@ -12,7 +13,10 @@ const Contact: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   const { title, description, phone, email, address, form } = blok;
 
   return (
-    <section className='relative z-10 overflow-hidden py-16'>
+    <section
+      className='relative z-10 overflow-hidden py-16'
+      {...storyblokEditable(blok)}
+    >
       <div className='container justify-self-center px-4 md:px-0'>
         <div className='-mx-4 flex flex-wrap items-center'>
           <div className='w-full px-4 lg:w-1/2 xl:w-5/12'>

@@ -3,6 +3,7 @@ import { ProductStoryblok } from '../../../../component-types-sb';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '../Button';
+import { storyblokEditable } from '@storyblok/react/rsc';
 
 interface Props {
   blok: ProductStoryblok;
@@ -13,7 +14,10 @@ interface Props {
 const Product: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   const { label, title, description, button, image, switchTextPlace } = blok;
   return (
-    <section className='bg-gray-1 py-12 lg:py-[70px]'>
+    <section
+      className='bg-gray-1 py-12 lg:py-[70px]'
+      {...storyblokEditable(blok)}
+    >
       <div className='container mx-auto px-4 md:px-0'>
         <div
           className={`-mx-4 flex ${
