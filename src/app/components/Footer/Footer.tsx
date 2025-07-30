@@ -17,7 +17,7 @@ const Footer: FC<Props> = ({ blok, mainColor }) => {
   return (
     <footer
       style={{ backgroundColor: mainColor }}
-      className='relative z-10 pb-10 pt-20 lg:pb-20 lg:pt-[120px]'
+      className='relative z-10 pb-10 pt-20 lg:pb-20 lg:pt-[120px] px-4'
       {...storyblokEditable(blok)}
     >
       <div className='container mx-auto px-4 md:px-0'>

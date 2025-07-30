@@ -14,19 +14,17 @@ const News: FC<Props> = ({ blok }) => {
       className='py-10 lg:py-[90px] justify-self-center px-4 sm:px-0'
       {...storyblokEditable(blok)}
     >
-      <div className='container'>
-        <div className='-mx-4 flex flex-wrap'>
-          {articles?.map(({ image, title, text, link, linkText }, index) => (
-            <NewsItem
-              key={index}
-              image={image?.filename as string}
-              title={title}
-              text={text}
-              link={link?.cached_url}
-              linkText={linkText}
-            />
-          ))}
-        </div>
+      <div className='-mx-4 flex flex-wrap'>
+        {articles?.map(({ image, title, text, link, linkText }, index) => (
+          <NewsItem
+            key={index}
+            image={image?.filename as string}
+            title={title}
+            text={text}
+            link={link?.cached_url}
+            linkText={linkText}
+          />
+        ))}
       </div>
     </section>
   );

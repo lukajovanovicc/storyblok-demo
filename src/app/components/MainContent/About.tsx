@@ -25,196 +25,192 @@ const About: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   return (
     <>
       <section
-        className='relative py-[50px]  lg:py-[70px]'
+        className='relative py-[50px] lg:py-[70px]'
         {...storyblokEditable(blok)}
       >
-        <div className='container mx-auto px-4 md:px-0'>
+        <div
+          className={`flex flex-col sm:flex-row ${
+            switchTextPlace ? 'flex-col-reverse sm:flex-row-reverse' : ''
+          } -mx-4`}
+        >
           <div
-            className={`flex flex-col sm:flex-row ${
-              switchTextPlace ? 'flex-col-reverse sm:flex-row-reverse' : ''
-            } -mx-4`}
+            className={`w-full px-4  ${switchTextPlace && 'flex justify-end'}`}
           >
-            <div
-              className={`w-full px-4  ${
-                switchTextPlace && 'flex justify-end'
-              }`}
-            >
-              <div className='mb-12 max-w-[540px] lg:mb-0'>
-                <h2 className='mb-5 text-3xl font-bold leading-tight sm:text-[40px]/[48px]'>
-                  {title}
-                </h2>
-                <p className='mb-10 text-base leading-relaxed'>{description}</p>
-                <h3 className='mb-8 text-2xl font-bold'>{subTitle}</h3>
-                <ul
-                  className='pb-6 list-disc list-inside'
-                  style={{ marker: mainColor }}
-                >
-                  {subItems?.map(({ text }, index) => (
-                    <li key={index} className='mb-4 text-base'>
-                      {text}
-                    </li>
-                  ))}
-                </ul>
-                <Link href='#'>
-                  <Button color={mainColor} darkTheme={darkTheme}>
-                    {button && button[0].text}
-                  </Button>
-                </Link>
-              </div>
+            <div className='mb-12 max-w-[540px] lg:mb-0'>
+              <h2 className='mb-5 text-3xl font-bold leading-tight sm:text-[40px]/[48px]'>
+                {title}
+              </h2>
+              <p className='mb-10 text-base leading-relaxed'>{description}</p>
+              <h3 className='mb-8 text-2xl font-bold'>{subTitle}</h3>
+              <ul
+                className='pb-6 list-disc list-inside'
+                style={{ marker: mainColor }}
+              >
+                {subItems?.map(({ text }, index) => (
+                  <li key={index} className='mb-4 text-base'>
+                    {text}
+                  </li>
+                ))}
+              </ul>
+              <Link href='#'>
+                <Button color={mainColor} darkTheme={darkTheme}>
+                  {button && button[0].text}
+                </Button>
+              </Link>
             </div>
+          </div>
 
-            <div className='w-full px-4 '>
-              <div className='flex flex-wrap -mx-2 sm:-mx-4 lg:-mx-2 xl:-mx-4'>
-                <div className='w-full px-2 sm:w-1/2 sm:px-4 lg:px-2 xl:px-4'>
-                  <div className='mb-4 sm:mb-8 h-[300px] sm:h-[400px] md:h-[540px] lg:h-[400px] xl:h-[500px]'>
-                    {images && images.length > 0 && (
-                      <Image
-                        src={images?.[0].filename as string}
-                        alt='about image'
-                        width={500}
-                        height={500}
-                        quality={100}
-                        className='object-cover object-center w-full h-full'
-                      />
-                    )}
-                  </div>
+          <div className='w-full px-4 '>
+            <div className='flex flex-wrap -mx-2 sm:-mx-4 lg:-mx-2 xl:-mx-4'>
+              <div className='w-full px-2 sm:w-1/2 sm:px-4 lg:px-2 xl:px-4'>
+                <div className='mb-4 sm:mb-8 h-[300px] sm:h-[400px] md:h-[540px] lg:h-[400px] xl:h-[500px]'>
+                  {images && images.length > 0 && (
+                    <Image
+                      src={images?.[0].filename as string}
+                      alt='about image'
+                      width={500}
+                      height={500}
+                      quality={100}
+                      className='object-cover object-center w-full h-full'
+                    />
+                  )}
                 </div>
-                <div className='w-full px-2 sm:w-1/2 sm:px-4 lg:px-2 xl:px-4'>
-                  <div className='mb-4 sm:mb-8 h-[150px] sm:h-[220px] md:h-[346px] lg:mb-4 lg:h-[225px] xl:mb-8 xl:h-[310px]'>
-                    {images && images.length > 0 && (
-                      <Image
-                        src={images?.[1].filename as string}
-                        alt='about image'
-                        width={310}
-                        height={310}
-                        quality={100}
-                        className='object-cover object-center w-full h-full'
-                      />
-                    )}
+              </div>
+              <div className='w-full px-2 sm:w-1/2 sm:px-4 lg:px-2 xl:px-4'>
+                <div className='mb-4 sm:mb-8 h-[150px] sm:h-[220px] md:h-[346px] lg:mb-4 lg:h-[225px] xl:mb-8 xl:h-[310px]'>
+                  {images && images.length > 0 && (
+                    <Image
+                      src={images?.[1].filename as string}
+                      alt='about image'
+                      width={310}
+                      height={310}
+                      quality={100}
+                      className='object-cover object-center w-full h-full'
+                    />
+                  )}
+                </div>
+                <div
+                  style={{ backgroundColor: mainColor }}
+                  className='relative z-10 mb-4 flex items-center justify-center overflow-hidden py-12 px-6 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8'
+                >
+                  <div>
+                    <span className='block text-5xl font-extrabold'>09</span>
+                    <span className='block text-base font-semibold'>
+                      We have
+                    </span>
+                    <span className='block text-base font-medium text-opacity-70'>
+                      Years of experience
+                    </span>
                   </div>
-                  <div
-                    style={{ backgroundColor: mainColor }}
-                    className='relative z-10 mb-4 flex items-center justify-center overflow-hidden py-12 px-6 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8'
-                  >
-                    <div>
-                      <span className='block text-5xl font-extrabold'>09</span>
-                      <span className='block text-base font-semibold'>
-                        We have
-                      </span>
-                      <span className='block text-base font-medium text-opacity-70'>
-                        Years of experience
-                      </span>
-                    </div>
-                    <div>
-                      <span className='absolute top-0 left-0 -z-10'>
-                        <svg
-                          width='106'
-                          height='144'
-                          viewBox='0 0 106 144'
-                          fill='none'
-                          xmlns='http://www.w3.org/2000/svg'
-                        >
-                          <rect
-                            opacity='0.1'
-                            x='-67'
-                            y='47.127'
-                            width='113.378'
-                            height='131.304'
-                            transform='rotate(-42.8643 -67 47.127)'
-                            fill='url(#paint0_linear_1416_214)'
-                          />
-                          <defs>
-                            <linearGradient
-                              id='paint0_linear_1416_214'
-                              x1='-10.3111'
-                              y1='47.127'
-                              x2='-10.3111'
-                              y2='178.431'
-                              gradientUnits='userSpaceOnUse'
-                            >
-                              <stop stopColor='white' />
-                              <stop
-                                offset='1'
-                                stopColor='white'
-                                stopOpacity='0'
-                              />
-                            </linearGradient>
-                          </defs>
-                        </svg>
-                      </span>
-                      <span className='absolute top-0 right-0 -z-10'>
-                        <svg
-                          width='130'
-                          height='97'
-                          viewBox='0 0 130 97'
-                          fill='none'
-                          xmlns='http://www.w3.org/2000/svg'
-                        >
-                          <rect
-                            opacity='0.1'
-                            x='0.86792'
-                            y='-6.67725'
-                            width='155.563'
-                            height='140.614'
-                            transform='rotate(-42.8643 0.86792 -6.67725)'
-                            fill='url(#paint0_linear_1416_215)'
-                          />
-                          <defs>
-                            <linearGradient
-                              id='paint0_linear_1416_215'
-                              x1='78.6495'
-                              y1='-6.67725'
-                              x2='78.6495'
-                              y2='133.937'
-                              gradientUnits='userSpaceOnUse'
-                            >
-                              <stop stopColor='white' />
-                              <stop
-                                offset='1'
-                                stopColor='white'
-                                stopOpacity='0'
-                              />
-                            </linearGradient>
-                          </defs>
-                        </svg>
-                      </span>
-                      <span className='absolute bottom-0 right-0 -z-10'>
-                        <svg
-                          width='175'
-                          height='104'
-                          viewBox='0 0 175 104'
-                          fill='none'
-                          xmlns='http://www.w3.org/2000/svg'
-                        >
-                          <rect
-                            opacity='0.1'
-                            x='175.011'
-                            y='108.611'
-                            width='101.246'
-                            height='148.179'
-                            transform='rotate(137.136 175.011 108.611)'
-                            fill='url(#paint0_linear_1416_216)'
-                          />
-                          <defs>
-                            <linearGradient
-                              id='paint0_linear_1416_216'
-                              x1='225.634'
-                              y1='108.611'
-                              x2='225.634'
-                              y2='256.79'
-                              gradientUnits='userSpaceOnUse'
-                            >
-                              <stop stopColor='white' />
-                              <stop
-                                offset='1'
-                                stopColor='white'
-                                stopOpacity='0'
-                              />
-                            </linearGradient>
-                          </defs>
-                        </svg>
-                      </span>
-                    </div>
+                  <div>
+                    <span className='absolute top-0 left-0 -z-10'>
+                      <svg
+                        width='106'
+                        height='144'
+                        viewBox='0 0 106 144'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <rect
+                          opacity='0.1'
+                          x='-67'
+                          y='47.127'
+                          width='113.378'
+                          height='131.304'
+                          transform='rotate(-42.8643 -67 47.127)'
+                          fill='url(#paint0_linear_1416_214)'
+                        />
+                        <defs>
+                          <linearGradient
+                            id='paint0_linear_1416_214'
+                            x1='-10.3111'
+                            y1='47.127'
+                            x2='-10.3111'
+                            y2='178.431'
+                            gradientUnits='userSpaceOnUse'
+                          >
+                            <stop stopColor='white' />
+                            <stop
+                              offset='1'
+                              stopColor='white'
+                              stopOpacity='0'
+                            />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </span>
+                    <span className='absolute top-0 right-0 -z-10'>
+                      <svg
+                        width='130'
+                        height='97'
+                        viewBox='0 0 130 97'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <rect
+                          opacity='0.1'
+                          x='0.86792'
+                          y='-6.67725'
+                          width='155.563'
+                          height='140.614'
+                          transform='rotate(-42.8643 0.86792 -6.67725)'
+                          fill='url(#paint0_linear_1416_215)'
+                        />
+                        <defs>
+                          <linearGradient
+                            id='paint0_linear_1416_215'
+                            x1='78.6495'
+                            y1='-6.67725'
+                            x2='78.6495'
+                            y2='133.937'
+                            gradientUnits='userSpaceOnUse'
+                          >
+                            <stop stopColor='white' />
+                            <stop
+                              offset='1'
+                              stopColor='white'
+                              stopOpacity='0'
+                            />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </span>
+                    <span className='absolute bottom-0 right-0 -z-10'>
+                      <svg
+                        width='175'
+                        height='104'
+                        viewBox='0 0 175 104'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <rect
+                          opacity='0.1'
+                          x='175.011'
+                          y='108.611'
+                          width='101.246'
+                          height='148.179'
+                          transform='rotate(137.136 175.011 108.611)'
+                          fill='url(#paint0_linear_1416_216)'
+                        />
+                        <defs>
+                          <linearGradient
+                            id='paint0_linear_1416_216'
+                            x1='225.634'
+                            y1='108.611'
+                            x2='225.634'
+                            y2='256.79'
+                            gradientUnits='userSpaceOnUse'
+                          >
+                            <stop stopColor='white' />
+                            <stop
+                              offset='1'
+                              stopColor='white'
+                              stopOpacity='0'
+                            />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </span>
                   </div>
                 </div>
               </div>

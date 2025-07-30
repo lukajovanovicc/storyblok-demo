@@ -13,41 +13,39 @@ const FAQ: FC<Props> = ({ blok, mainColor, darkTheme }) => {
   const { label, title, description, accordions } = blok;
   return (
     <section
-      className='relative z-20 overflow-hidden py-12 lg:py-[70px] p-4 sm:p-0'
+      className='relative z-20 overflow-hidden py-12 lg:py-[70px] p-4'
       {...storyblokEditable(blok)}
     >
-      <div className='container mx-auto'>
-        <div className='-mx-4 flex flex-wrap'>
-          <div className='w-full px-4'>
-            <div className='mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20'>
-              <span
-                style={{ color: mainColor }}
-                className='mb-2 block text-lg font-semibold'
-              >
-                {label}
-              </span>
-              <h2 className='mb-4 text-3xl font-bold sm:text-[40px]/[48px]'>
-                {title}
-              </h2>
-              <p className='text-base text-body-color dark:text-dark-6'>
-                {description}
-              </p>
-            </div>
+      <div className='-mx-4 flex flex-wrap'>
+        <div className='w-full px-4'>
+          <div className='mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20'>
+            <span
+              style={{ color: mainColor }}
+              className='mb-2 block text-lg font-semibold'
+            >
+              {label}
+            </span>
+            <h2 className='mb-4 text-3xl font-bold sm:text-[40px]/[48px]'>
+              {title}
+            </h2>
+            <p className='text-base text-body-color dark:text-dark-6'>
+              {description}
+            </p>
           </div>
         </div>
+      </div>
 
-        <div className='-mx-4 grid md:grid-cols-2'>
-          {accordions?.map(({ title, text }, index) => (
-            <div className='w-full px-4' key={index}>
-              <Accordion
-                header={title}
-                text={text}
-                mainColor={mainColor}
-                darkTheme={darkTheme}
-              />
-            </div>
-          ))}
-        </div>
+      <div className='-mx-4 grid md:grid-cols-2'>
+        {accordions?.map(({ title, text }, index) => (
+          <div className='w-full px-4' key={index}>
+            <Accordion
+              header={title}
+              text={text}
+              mainColor={mainColor}
+              darkTheme={darkTheme}
+            />
+          </div>
+        ))}
       </div>
 
       <div className='absolute bottom-0 right-0 z-[-1]'>

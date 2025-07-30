@@ -17,37 +17,31 @@ const Hero: FC<Props> = ({ blok, mainColor, darkTheme }) => {
       className='relative z-10 overflow-hidden py-[120px] md:py-[150px] lg:py-[180px] h-[90vh]'
       {...storyblokEditable(blok)}
     >
-      <div className='container mx-auto'>
-        <div className='-mx-4 flex flex-wrap justify-center'>
-          <div className='w-full px-4'>
-            <div className='mx-auto max-w-[666px] text-center'>
-              <span
-                className={`mb-5 block text-base font-semibold text-${mainColor} sm:text-lg md:text-xl`}
-              >
-                {label}
-              </span>
-              <h1 className='mb-5 text-3xl font-bold capitalize !leading-[1.208] sm:text-[42px] xl:text-5xl'>
-                {title}
-              </h1>
-              <p className='mb-9 text-base font-medium text-body-color dark:text-dark-6 md:text-lg'>
-                {description}
-              </p>
-              <ul className='flex flex-wrap items-center justify-center gap-4'>
-                {buttons?.map(({ text, type }, index) => (
-                  <li key={index}>
-                    <Link href='#'>
-                      <Button
-                        type={type}
-                        color={mainColor}
-                        darkTheme={darkTheme}
-                      >
-                        {text}
-                      </Button>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <div className='-mx-4 flex flex-wrap justify-center'>
+        <div className='w-full px-4'>
+          <div className='mx-auto max-w-[666px] text-center'>
+            <span
+              className={`mb-5 block text-base font-semibold text-${mainColor} sm:text-lg md:text-xl`}
+            >
+              {label}
+            </span>
+            <h1 className='mb-5 text-3xl font-bold capitalize !leading-[1.208] sm:text-[42px] xl:text-5xl'>
+              {title}
+            </h1>
+            <p className='mb-9 text-base font-medium text-body-color dark:text-dark-6 md:text-lg'>
+              {description}
+            </p>
+            <ul className='flex flex-wrap items-center justify-center gap-4'>
+              {buttons?.map(({ text, type }, index) => (
+                <li key={index}>
+                  <Link href='#'>
+                    <Button type={type} color={mainColor} darkTheme={darkTheme}>
+                      {text}
+                    </Button>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
