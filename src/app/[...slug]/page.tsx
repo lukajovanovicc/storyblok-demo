@@ -9,7 +9,7 @@ const fetchSlug = async (story: string, lang: string) => {
   const client = getStoryblokApi();
 
   const response = await client.getStory(`${story}`, {
-    version: 'draft',
+    version: 'published',
     language: lang,
   });
   return response.data.story;

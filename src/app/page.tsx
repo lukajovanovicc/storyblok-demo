@@ -1,7 +1,25 @@
-import React from 'react';
+import { StoryblokStory } from '@storyblok/react/rsc';
+import { FC } from 'react';
+import { getStoryblokApi } from './core/storyblok';
 
-const page = () => {
-  return <div>page</div>;
+interface Props {
+  params: any;
+}
+const fetchSlug = async () => {
+  const client = getStoryblokApi();
+
+  const response = await client.getStory(`home`, {
+    version: 'published',
+  });
+  return response.data.story;
 };
 
-export default page;
+const HomePage: FC<Props> = async () => {
+  const data = await fetchSlug();
+  return (
+    <>
+      <StoryblokStory story={data} />
+    </>
+  );
+};
+export default HomePage;
