@@ -20,8 +20,8 @@ const Product: FC<Props> = ({ blok, mainColor, darkTheme }) => {
     >
       <div
         className={`-mx-4 flex ${
-          switchTextPlace ? 'flex-row-reverse' : ''
-        } items-center justify-center`}
+          switchTextPlace ? 'lg:flex-row-reverse flex-col-reverse' : ''
+        } items-center justify-center flex-col lg:flex-row`}
       >
         <div
           className={`w-full px-4 lg:w-1/2 ${

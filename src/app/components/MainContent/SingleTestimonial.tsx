@@ -20,11 +20,11 @@ const SingleTestimonial: FC<Props> = ({
 }) => {
   return (
     <div className='relative z-10 flex justify-center'>
-      <div className='relative w-full pb-16 md:w-11/12 md:pb-0 lg:w-10/12 xl:w-8/12'>
+      <div className='relative w-full px-2 md:px-0 py-16 md:w-11/12 md:py-10 lg:w-10/12 xl:w-8/12'>
         <div
-          className={`relative z-10 ${
+          className={`relative z-10 items-center overflow-hidden shadow-lg md:flex rounded ${
             darkTheme ? 'bg-gray-700' : 'bg-white'
-          } items-center overflow-hidden shadow-lg md:flex`}
+          }`}
         >
           <div className='w-full max-w-[150px] max-h-[300px] px-6 pt-10 sm:px-10 md:max-w-[270px] md:px-0 md:pt-0'>
             <Image
