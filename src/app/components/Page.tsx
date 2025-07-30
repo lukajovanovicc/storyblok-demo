@@ -36,25 +36,25 @@ const Page: FC<Props> = async ({ blok, page }) => {
             mainColor={mainColor as string}
             page={page}
           />
-
-          {body.map((nestedBlok) => (
-            <div
-              key={nestedBlok._uid}
-              className={
-                nestedBlok.component === 'hero' ||
-                nestedBlok.component === 'FAQ'
-                  ? ''
-                  : 'container mx-auto px-4'
-              }
-            >
-              <StoryblokServerComponent
-                blok={nestedBlok}
-                mainColor={mainColor}
-                darkTheme={darkTheme}
-                page={page}
-              />
-            </div>
-          ))}
+          <main>
+            {body.map((nestedBlok) => (
+              <div
+                key={nestedBlok._uid}
+                className={
+                  nestedBlok.component === 'hero'
+                    ? ''
+                    : 'container mx-auto px-4'
+                }
+              >
+                <StoryblokServerComponent
+                  blok={nestedBlok}
+                  mainColor={mainColor}
+                  darkTheme={darkTheme}
+                  page={page}
+                />
+              </div>
+            ))}
+          </main>
           <Footer blok={content.content[1]} mainColor={mainColor as string} />
         </div>
       ) : (

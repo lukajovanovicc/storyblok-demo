@@ -21,12 +21,10 @@ const Product: FC<Props> = ({ blok, mainColor, darkTheme }) => {
       <div
         className={`-mx-4 flex ${
           switchTextPlace ? 'lg:flex-row-reverse flex-col-reverse' : ''
-        } items-center justify-center flex-col lg:flex-row`}
+        } items-center justify-between flex-col lg:flex-row`}
       >
         <div
-          className={`w-full px-4 lg:w-1/2 ${
-            switchTextPlace ? 'text-right' : ''
-          }`}
+          className={`w-full lg:w-1/2 ${switchTextPlace ? 'text-right' : ''}`}
         >
           <div className='mb-12 max-w-[465px] lg:mb-0'>
             <span
@@ -52,7 +50,7 @@ const Product: FC<Props> = ({ blok, mainColor, darkTheme }) => {
             </Link>
           </div>
         </div>
-        <div className='w-full px-4 lg:w-1/2 2xl:w-5/12'>
+        <div className='w-full lg:w-1/2 2xl:w-5/12'>
           <div className='rounded-3xl border-8 border-white bg-white'>
             <Image
               src={image.filename as string}
