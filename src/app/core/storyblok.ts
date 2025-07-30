@@ -15,9 +15,7 @@ import News from '../components/MainContent/Blog/News';
 import Blog from '../components/MainContent/Blog/Blog';
 
 export const getStoryblokApi = storyblokInit({
-  accessToken: process.env.NEXT_PUBLIC_STORYBLOK_TOKEN
-    ? process.env.STORYBLOK_TOKEN
-    : process.env.NEXT_PUBLIC_STORYBLOK_TOKEN,
+  accessToken: process.env.STORYBLOK_TOKEN,
   use: [apiPlugin],
   components: {
     page: Page,
