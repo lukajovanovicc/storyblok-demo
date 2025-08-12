@@ -12,7 +12,7 @@ interface Props {
 
 const fetchConfig = async () => {
   const storyblokApi = getStoryblokApi();
-  const { data } = await storyblokApi.getStory('config', {
+  const { data } = await storyblokApi.getStory('tech-folder/config', {
     version: 'draft',
   });
 
@@ -22,7 +22,6 @@ const fetchConfig = async () => {
 const Page: FC<Props> = async ({ blok, page }) => {
   const { body, darkTheme, font, mainColor } = blok;
   const { content } = await fetchConfig();
-
   return (
     <>
       {body ? (
